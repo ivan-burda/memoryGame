@@ -1,2 +1,3 @@
 # TDD-memoryGame
-A memory game build by using the TDD approach
+
+A memory game built by using the TDD approach, Jest and React Testing Library

@@ -1,0 +1,18 @@
+A set of n images 
+Generate a grid with the images where 
+-every image is used exactly twice 
+-every pair has a shared identifier in order to enable comparison 
+-positions are random
+Images are overlayed by a default back image 
+
+Clicking an overlay image exposes another image underneath 
+Clicking another overlay image exposes another image underneath 
+If these two images are identical, remove them from the field, increase the score 
+Else flip the images back and keep the score 
+
+Add an aspect of competitiveness 
+-either a maximum number of attempts 
+-or measure the needed time and submit it to the server
+
+Complexity 
+-images are randomly selected from the server, e.g. based on a keyword
