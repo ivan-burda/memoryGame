@@ -5,19 +5,20 @@ Generate a grid with the images where --DONE
 -positions are random --DONE
 Images are overlayed by a default back image  --DONE
 
-Clicking an overlay image exposes another image underneath 
-Clicking another overlay image exposes another image underneath 
+Clicking an overlay image exposes another image underneath --DONE
+Clicking another overlay image exposes another image underneath  --DONE 
 If these two images are identical, remove them from the field, increase the score 
 Else flip the images back and keep the score 
+Matched pairs stay flipped and become transparent 
+If all pairs are matched show congratulations and offer a game reset option
 
 Add an aspect of competitiveness 
--either a maximum number of attempts 
--or measure the needed time and submit it to the server
+- count number of attempts
+-or measure the needed time
+- submit the counts to the server once the game is over
 
 Complexity 
 -images are randomly selected from the server, e.g. based on a keyword
-
-
 
 // Testing 
 https://wanago.io/2019/12/16/javascript-testing-5-testing-hooks-with-react-hooks-testing-library-and-redux/

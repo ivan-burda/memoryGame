@@ -1,5 +1,6 @@
 export const LOAD_CARDS = "LOAD_CARDS";
-export const UPDATE_CARD = "UPDATE_CARD";
+export const FLIP_CARD = "FLIP_CARD";
+export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
 
 const random = function () {
   return Math.floor(Math.random() * 100) + 1;
@@ -15,6 +16,7 @@ export function loadCards(cards) {
       imgFilename: card,
       randomFactor: random(),
       matched: false,
+      flipped: false,
     };
     cardData[`${cards.indexOf(card) + 1}b`] = {
       matchingId: cards.indexOf(card) + 1,
@@ -22,10 +24,26 @@ export function loadCards(cards) {
       imgFilename: card,
       randomFactor: random(),
       matched: false,
+      flipped: false,
     };
   });
   return {
     type: LOAD_CARDS,
     cards: cardData,
+  };
+}
+
+//FLIP CARD
+export function flipCard(id) {
+  return {
+    type: FLIP_CARD,
+    id: id,
+  };
+}
+
+//FLIP BACK ALL UNMACTHED
+export function flipBackUnmatched() {
+  return {
+    type: FLIP_BACK_UNMATCHED,
   };
 }
