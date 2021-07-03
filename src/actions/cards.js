@@ -37,13 +37,15 @@ export function loadCards(cards) {
 export function flipCard(id) {
   return {
     type: FLIP_CARD,
-    id: id,
+    id,
   };
 }
 
 //FLIP BACK ALL UNMACTHED
-export function flipBackUnmatched() {
+export function flipBackUnmatched({ flipped1, flipped2 }) {
   return {
     type: FLIP_BACK_UNMATCHED,
+    flipped1,
+    flipped2,
   };
 }

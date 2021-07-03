@@ -17,12 +17,15 @@ export default function cards(state = [], action) {
         [action.id]: cardDetail,
       };
     case FLIP_BACK_UNMATCHED:
-      let newState1 = { ...state };
-      let unmatched = state;
-      console.log(unmatched);
-
+      let updatedState = { ...state };
+      let flipped1Updated = { ...updatedState[`${action.flipped1}`] };
+      flipped1Updated.flipped = !flipped1Updated.flipped;
+      let flipped2Updated = { ...updatedState[`${action.flipped2}`] };
+      flipped2Updated.flipped = !flipped2Updated.flipped;
       return {
         ...state,
+        [action.flipped1]: flipped1Updated,
+        [action.flipped2]: flipped2Updated,
       };
 
     default:
