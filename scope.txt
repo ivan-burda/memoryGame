@@ -1,9 +1,9 @@
 A set of n images 
-Generate a grid with the images where 
--every image is used exactly twice 
--every pair has a shared identifier in order to enable comparison 
--positions are random
-Images are overlayed by a default back image 
+Generate a grid with the images where --DONE
+-every image is used exactly twice  --DONE
+-every pair has a shared identifier in order to enable comparison  --DONE
+-positions are random --DONE
+Images are overlayed by a default back image  --DONE
 
 Clicking an overlay image exposes another image underneath 
 Clicking another overlay image exposes another image underneath 
