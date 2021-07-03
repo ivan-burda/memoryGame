@@ -1,4 +1,5 @@
 .Maingrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 175px);
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-gap: 20px;
 }

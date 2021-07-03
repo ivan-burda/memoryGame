@@ -5,13 +5,12 @@ import Card from "../../components/Card/Card";
 import classes from "./Maingrid.module.css";
 
 export default function Maingrid() {
-  const cards = Object.values(useSelector((state) => state.cards));
+  const cards = Object.values(useSelector((state) => state.cards)).sort((a,b)=>a.randomFactor-b.randomFactor);
   if (cards.length === 0) {
     return <div>...</div>;
   } else {
     return (
       <div className={classes.Maingrid}>
-        {" "}
         {cards.map((card) => (
           <Card uniqueId={card.uniqueId} key={card.uniqueId} />
         ))}

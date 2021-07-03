@@ -1,4 +1,8 @@
 .Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   width: 150px;
   height: 150px;
   border: 3px solid rgb(126, 139, 163);
@@ -10,8 +14,7 @@
 }
 
 .Card img {
-  width: 150px;
-  height: 150px;
+  height: 100%;
 }
 
 .Card button {
