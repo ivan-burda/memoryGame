@@ -11,7 +11,6 @@ export default function Card({ uniqueId }) {
   const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const cards = useSelector((state) => state.cards);
   const [image, setImage] = React.useState(backImage);
-  const [flipBack, flipBackTrigger] = React.useState(0);
 
   React.useEffect(() => {
     controlCardDisplay();
@@ -35,15 +34,10 @@ export default function Card({ uniqueId }) {
       if (cards[oppositeId].flipped === true) {
         console.log("Its a match!");
       } else {
+        dispatch(flipBackUnmatched({ flipped1: "1a", flipped2: "1b" }));
       }
     }
   }, [cards[uniqueId].flipped]);
-
-  React.useEffect(() => {
-    dispatch(flipBackUnmatched({ flipped1: "1a", flipped2: "1b" }));
-  }, [flipBack]);
-
-  const evaluateFlip = () => {};
 
   const triggerFlip = () => {
     if (cardDetails.flipped === false) {
