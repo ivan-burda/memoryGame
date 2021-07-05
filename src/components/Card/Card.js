@@ -11,6 +11,7 @@ export default function Card({ uniqueId }) {
   const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const cards = useSelector((state) => state.cards);
   const [image, setImage] = React.useState(backImage);
+  const [flipBack, flipBackTrigger] = React.useState(0);
 
   React.useEffect(() => {
     controlCardDisplay();
@@ -26,23 +27,23 @@ export default function Card({ uniqueId }) {
     }
   };
 
-  React.useEffect(() => {});
-
-  const evaluateFlip = () => {
-    if (Object.values(cards).length !== 0) {
-      let flippedUnmatchedCards = Object.values(cards).filter((card) => card.flipped === true && card.matched === false);
-      console.log(flippedUnmatchedCards);
-      if (flippedUnmatchedCards.length === 2) {
-        console.log(flippedUnmatchedCards);
-        if (flippedUnmatchedCards[0].matchingId === flippedUnmatchedCards[1].matchingId) {
-          console.log("Its a match!");
-        } else {
-          //Flip back all cards which have not been matched
-          dispatch(flipBackUnmatched({ flipped1: flippedUnmatchedCards[0].uniqueId, flipped2: flippedUnmatchedCards[1].uniqueId }));
-        }
+  React.useEffect(() => {
+    if (cards[uniqueId].flipped === true) {
+      let relatedText = uniqueId.slice(-1);
+      let relatedNumber = uniqueId.match(/\d+/)[0];
+      let oppositeId = relatedNumber + (relatedText === "a" ? "b" : "a");
+      if (cards[oppositeId].flipped === true) {
+        console.log("Its a match!");
+      } else {
       }
     }
-  };
+  }, [cards[uniqueId].flipped]);
+
+  React.useEffect(() => {
+    dispatch(flipBackUnmatched({ flipped1: "1a", flipped2: "1b" }));
+  }, [flipBack]);
+
+  const evaluateFlip = () => {};
 
   const triggerFlip = () => {
     if (cardDetails.flipped === false) {
