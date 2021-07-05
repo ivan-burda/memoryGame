@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { flipCard, flipBackUnmatched } from "../../actions/cards";
+import { flipCard, flipBackUnmatched, markMatched } from "../../actions/cards";
 import backImage from "../../media/back.png";
 
 import classes from "./Card.module.css";
@@ -33,8 +33,9 @@ export default function Card({ uniqueId }) {
       let oppositeId = relatedNumber + (relatedText === "a" ? "b" : "a");
       if (cards[oppositeId].flipped === true) {
         console.log("Its a match!");
+        dispatch(markMatched({ matched1: uniqueId, matched2: oppositeId }));
       } else {
-        dispatch(flipBackUnmatched({ flipped1: "1a", flipped2: "1b" }));
+        //dispatch(flipBackUnmatched({ flipped1: "1a", flipped2: "1b" }));
       }
     }
   }, [cards[uniqueId].flipped]);

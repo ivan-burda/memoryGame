@@ -1,4 +1,4 @@
-import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED } from "../actions/cards";
+import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED } from "../actions/cards";
 
 export default function cards(state = [], action) {
   switch (action.type) {
@@ -27,7 +27,17 @@ export default function cards(state = [], action) {
         [action.flipped1]: flipped1Updated,
         [action.flipped2]: flipped2Updated,
       };
-
+    case MARK_MATCHED:
+      let updatedState2 = { ...state };
+      let matched1Updated = { ...updatedState2[`${action.matched1}`] };
+      matched1Updated.matched = !matched1Updated.matched;
+      let matched2Updated = { ...updatedState2[`${action.matched2}`] };
+      matched2Updated.matched = !matched2Updated.matched;
+      return {
+        ...state,
+        [action.matched1]: matched1Updated,
+        [action.matched2]: matched2Updated,
+      };
     default:
       return state;
   }

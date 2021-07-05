@@ -1,6 +1,7 @@
 export const LOAD_CARDS = "LOAD_CARDS";
 export const FLIP_CARD = "FLIP_CARD";
 export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
+export const MARK_MATCHED = "MARK_MATCHED";
 
 const random = function () {
   return Math.floor(Math.random() * 100) + 1;
@@ -47,5 +48,14 @@ export function flipBackUnmatched({ flipped1, flipped2 }) {
     type: FLIP_BACK_UNMATCHED,
     flipped1,
     flipped2,
+  };
+}
+
+//MARK MATCHED
+export function markMatched({ matched1, matched2 }) {
+  return {
+    type: MARK_MATCHED,
+    matched1,
+    matched2,
   };
 }
