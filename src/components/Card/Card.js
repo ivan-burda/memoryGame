@@ -26,6 +26,8 @@ export default function Card({ uniqueId }) {
     }
   };
 
+  React.useEffect(() => {});
+
   const evaluateFlip = () => {
     if (Object.values(cards).length !== 0) {
       let flippedUnmatchedCards = Object.values(cards).filter((card) => card.flipped === true && card.matched === false);
