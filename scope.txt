@@ -21,6 +21,8 @@ Count time needed
 Submit the counts to the server once the game is over - most important is the time. If identical the the number of flips.
 Show a rank of 10 best scores and the players who reached them
 
+Refactor the code
+
 // Testing 
 https://wanago.io/2019/12/16/javascript-testing-5-testing-hooks-with-react-hooks-testing-library-and-redux/
 https://blog.logrocket.com/testing-apps-with-jest-and-react-testing-library/
