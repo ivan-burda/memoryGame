@@ -28,5 +28,3 @@ https://blog.logrocket.com/testing-apps-with-jest-and-react-testing-library/
 Make sure to fix this bug: 
 Turn 1: 1, 2,
 Turn2: 1 -> match!
-
-Solution: When flipping a card to true, update its lastFlip timestamp. Then use the timestamp when comparing the matching 

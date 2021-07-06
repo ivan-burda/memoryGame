@@ -11,24 +11,29 @@ export default function cards(state = [], action) {
       let newState = { ...state };
       let cardDetail = { ...state[action.id] };
       cardDetail.flipped = !cardDetail.flipped;
+
       newState[action.id] = !state[action.id];
+
       return {
         ...state,
         [action.id]: cardDetail,
       };
     case FLIP_BACK_UNMATCHED:
+      let updatedState = { ...state };
+      let cardsToFlipBack = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false && item.uniqueId !== action.exceptOf);
+      //console.log("cardsToFlipBack", cardsToFlipBack);
+      let numberOfCardsToFlipBack = cardsToFlipBack.length;
+      console.log(numberOfCardsToFlipBack);
       let flippedBack = [];
       let flippedObj = {};
-      let updatedState = { ...state };
-      let unwrappedItems = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false && item.uniqueId !== action.exceptOf);
-      console.log(typeof unwrappedItems.length);
-      let number = unwrappedItems.length;
-      if (number === 2 || action.match === true) {
-        unwrappedItems.forEach((item) => flippedBack.push({ ...item }));
+      if (numberOfCardsToFlipBack === 2) {
+        //|| action.match === true
+        cardsToFlipBack.forEach((item) => flippedBack.push({ ...item }));
         flippedBack.forEach((item) => (item.flipped = !item.flipped));
         flippedBack.forEach((item) => (flippedObj[item.uniqueId] = item));
       }
 
+      //console.log("flippedBack", flippedBack);
       // console.log(updatedState);
       // console.log(unwrappedItems);
       // console.log(flippedBack);

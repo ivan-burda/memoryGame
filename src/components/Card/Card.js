@@ -42,6 +42,7 @@ export default function Card({ uniqueId }) {
   }, [cards[uniqueId].flipped]);
 
   const triggerFlip = () => {
+    dispatch(flipBackUnmatched({ exceptOf: uniqueId }));
     if (cardDetails.flipped === false) {
       dispatch(flipCard(cardDetails.uniqueId));
     }
