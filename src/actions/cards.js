@@ -43,11 +43,10 @@ export function flipCard(id) {
 }
 
 //FLIP BACK ALL UNMACTHED
-export function flipBackUnmatched({ flipped1, flipped2 }) {
+export function flipBackUnmatched(exceptOf) {
   return {
     type: FLIP_BACK_UNMATCHED,
-    flipped1,
-    flipped2,
+    exceptOf,
   };
 }
 
