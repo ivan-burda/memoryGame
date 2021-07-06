@@ -17,16 +17,26 @@ export default function cards(state = [], action) {
         [action.id]: cardDetail,
       };
     case FLIP_BACK_UNMATCHED:
-      let updatedState = { ...state };
-      let unwrappedItems = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false);
       let flippedBack = [];
-      unwrappedItems.forEach((item) => flippedBack.push({ ...item }));
-      flippedBack.forEach((item) => (item.flipped = !item.flipped));
-      console.log(updatedState);
-      console.log(unwrappedItems);
+      let flippedObj = {};
+      let updatedState = { ...state };
+      let unwrappedItems = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false && item.uniqueId !== action.exceptOf);
+      console.log(typeof unwrappedItems.length);
+      let number = unwrappedItems.length;
+      if (number === 2 || action.match === true) {
+        unwrappedItems.forEach((item) => flippedBack.push({ ...item }));
+        flippedBack.forEach((item) => (item.flipped = !item.flipped));
+        flippedBack.forEach((item) => (flippedObj[item.uniqueId] = item));
+      }
+
+      // console.log(updatedState);
+      // console.log(unwrappedItems);
+      // console.log(flippedBack);
+      // console.log(flippedObj);
 
       return {
         ...state,
+        ...flippedObj,
       };
     case MARK_MATCHED:
       let updatedState2 = { ...state };

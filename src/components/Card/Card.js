@@ -34,9 +34,9 @@ export default function Card({ uniqueId }) {
       if (cards[oppositeId].flipped === true) {
         console.log("Its a match!");
         dispatch(markMatched({ matched1: uniqueId, matched2: oppositeId }));
-        dispatch(flipBackUnmatched(uniqueId));
+        dispatch(flipBackUnmatched({ exceptOf: uniqueId, match: true }));
       } else {
-        dispatch(flipBackUnmatched(uniqueId));
+        dispatch(flipBackUnmatched({ exceptOf: uniqueId, match: false }));
       }
     }
   }, [cards[uniqueId].flipped]);
