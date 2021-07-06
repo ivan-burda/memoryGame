@@ -18,6 +18,7 @@ export function loadCards(cards) {
       randomFactor: random(),
       matched: false,
       flipped: false,
+      lastFlippedTime: Date.now(),
     };
     cardData[`${cards.indexOf(card) + 1}b`] = {
       matchingId: cards.indexOf(card) + 1,
@@ -26,6 +27,7 @@ export function loadCards(cards) {
       randomFactor: random(),
       matched: false,
       flipped: false,
+      lastFlippedTime: Date.now(),
     };
   });
   return {
