@@ -11,20 +11,17 @@ export default function Card({ uniqueId }) {
   const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const cards = useSelector((state) => state.cards);
   const [image, setImage] = React.useState(backImage);
+  const [classList, setClassList] = React.useState([classes.Card]);
 
   React.useEffect(() => {
     controlCardDisplay();
   }, [cardDetails.flipped]);
 
-  const controlCardDisplay = async () => {
-    if (cardDetails.flipped === true) {
-      await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
-        setImage(image.default);
-      });
-    } else {
-      setImage(backImage);
+  React.useEffect(() => {
+    if (cardDetails.matched) {
+      setClassList(classList.concat(classes.Matched));
     }
-  };
+  }, [cardDetails.matched]);
 
   React.useEffect(() => {
     if (cards[uniqueId].flipped === true) {
@@ -41,6 +38,16 @@ export default function Card({ uniqueId }) {
     }
   }, [cards[uniqueId].flipped]);
 
+  const controlCardDisplay = async () => {
+    if (cardDetails.flipped === true) {
+      await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
+        setImage(image.default);
+      });
+    } else {
+      setImage(backImage);
+    }
+  };
+
   const triggerFlip = () => {
     dispatch(flipBackUnmatched({ exceptOf: uniqueId }));
     if (cardDetails.flipped === false) {
@@ -49,7 +56,7 @@ export default function Card({ uniqueId }) {
   };
 
   return (
-    <div className={classes.Card}>
+    <div className={classList.join(" ")}>
       <img src={image} alt="Memory card" onClick={() => triggerFlip()} />
     </div>
   );

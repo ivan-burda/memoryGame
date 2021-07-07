@@ -13,6 +13,10 @@
   padding: 0;
 }
 
+.Matched {
+  opacity: 0.5;
+}
+
 .Card img {
   height: 100%;
 }
