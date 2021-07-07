@@ -3,9 +3,7 @@ export const FLIP_CARD = "FLIP_CARD";
 export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
 export const MARK_MATCHED = "MARK_MATCHED";
 
-const random = function () {
-  return Math.floor(Math.random() * 100) + 1;
-};
+class Card {}
 
 //LOAD CARDS
 export function loadCards(cards) {
@@ -15,7 +13,7 @@ export function loadCards(cards) {
       matchingId: cards.indexOf(card) + 1,
       uniqueId: `${cards.indexOf(card) + 1}a`,
       imgFilename: card,
-      randomFactor: random(),
+      randomFactor: Math.floor(Math.random() * 100) + 1,
       matched: false,
       flipped: false,
       lastFlippedTime: Date.now(),
@@ -24,7 +22,7 @@ export function loadCards(cards) {
       matchingId: cards.indexOf(card) + 1,
       uniqueId: `${cards.indexOf(card) + 1}b`,
       imgFilename: card,
-      randomFactor: random(),
+      randomFactor: Math.floor(Math.random() * 100) + 1,
       matched: false,
       flipped: false,
       lastFlippedTime: Date.now(),
