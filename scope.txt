@@ -13,7 +13,7 @@ Matched pairs stay flipped  --DONE
 
 
 Make matched pair transparent
-If all pairs are matched show congratulations and offer a game reset option
+If all pairs are matched show congratulations and offer a game reset option  --DONE
 
 Ask player for their name
 Count number of flips needed 

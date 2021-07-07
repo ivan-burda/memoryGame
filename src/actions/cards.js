@@ -38,8 +38,9 @@ export function markMatched({ matched1, matched2 }) {
 }
 
 //RESET CARDS
-export function resetCards() {
+export function resetCards(cards) {
   return {
     type: LOAD_CARDS,
+    cards,
   };
 }

@@ -30,10 +30,12 @@ export default function Card({ uniqueId }) {
   React.useEffect(() => {
     if (cardDetails.matched) {
       setClassList(classList.concat(classes.Matched));
+    } else {
+      setClassList(classList.filter((item) => item !== classes.Matched));
     }
   }, [cardDetails.matched]);
 
-  //If a match happens when the card gets flipped->request marching the pair as matched
+  //If a match happens when the card gets flipped->request marking the pair as matched
   React.useEffect(() => {
     if (cards[uniqueId].flipped === true) {
       let relatedText = uniqueId.slice(-1);
