@@ -4,26 +4,11 @@ export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
 export const MARK_MATCHED = "MARK_MATCHED";
 export const RESET_CARDS = "RESET_CARDS";
 
-const createCard = (cards, card, variant) => ({
-  matchingId: cards.indexOf(card) + 1,
-  uniqueId: `${cards.indexOf(card) + 1}${variant}`,
-  imgFilename: card,
-  randomFactor: Math.floor(Math.random() * 100) + 1,
-  matched: false,
-  flipped: false,
-  lastFlippedTime: Date.now(),
-});
-
 //LOAD CARDS
 export function loadCards(cards) {
-  const cardData = {};
-  cards.forEach((card) => {
-    cardData[`${cards.indexOf(card) + 1}a`] = createCard(cards, card, "a");
-    cardData[`${cards.indexOf(card) + 1}b`] = createCard(cards, card, "b");
-  });
   return {
     type: LOAD_CARDS,
-    cards: cardData,
+    cards,
   };
 }
 

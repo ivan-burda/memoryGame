@@ -1,19 +1,35 @@
 import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED, RESET_CARDS } from "../actions/cards";
 
+function createCard(cards, card, variant) {
+  return {
+    matchingId: cards.indexOf(card) + 1,
+    uniqueId: `${cards.indexOf(card) + 1}${variant}`,
+    imgFilename: card,
+    randomFactor: Math.floor(Math.random() * 100) + 1,
+    matched: false,
+    flipped: false,
+    lastFlippedTime: Date.now(),
+  };
+}
+
 export default function cards(state = [], action) {
   switch (action.type) {
     case LOAD_CARDS:
+      const cardData = {};
+      const receivedCards = action.cards;
+      receivedCards.forEach((card) => {
+        cardData[`${receivedCards.indexOf(card) + 1}a`] = createCard(receivedCards, card, "a");
+        cardData[`${receivedCards.indexOf(card) + 1}b`] = createCard(receivedCards, card, "b");
+      });
       return {
         ...state,
-        ...action.cards,
+        ...cardData,
       };
     case FLIP_CARD:
       let newState = { ...state };
       let cardDetail = { ...state[action.id] };
       cardDetail.flipped = !cardDetail.flipped;
-
       newState[action.id] = !state[action.id];
-
       return {
         ...state,
         [action.id]: cardDetail,
@@ -21,13 +37,11 @@ export default function cards(state = [], action) {
     case FLIP_BACK_UNMATCHED:
       let updatedState = { ...state };
       let cardsToFlipBack = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false && item.uniqueId !== action.exceptOf);
-      //console.log("cardsToFlipBack", cardsToFlipBack);
       let numberOfCardsToFlipBack = cardsToFlipBack.length;
       console.log(numberOfCardsToFlipBack);
       let flippedBack = [];
       let flippedObj = {};
       if (numberOfCardsToFlipBack === 2) {
-        //|| action.match === true
         cardsToFlipBack.forEach((item) => flippedBack.push({ ...item }));
         flippedBack.forEach((item) => (item.flipped = !item.flipped));
         flippedBack.forEach((item) => (flippedObj[item.uniqueId] = item));
