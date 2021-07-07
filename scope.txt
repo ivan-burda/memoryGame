@@ -15,11 +15,17 @@ Matched pairs stay flipped  --DONE
 Make matched pair transparent
 If all pairs are matched show congratulations and offer a game reset option  --DONE
 
-Ask player for their name
 Count number of flips needed 
 Count time needed 
-Submit the counts to the server once the game is over - most important is the time. If identical the the number of flips.
-Show a rank of 10 best scores and the players who reached them
+Ask player for their name
+Get the existing counts, time and names from the server
+Submit the new counts, time and name to the server once the game is over - most important is the time. If identical the the number of flips.
+Every score object also includes a timestamp of when it happened
+
+When congratulating, inform the player additionally if the score reached the top 10
+Have two routes: 
+-Route 1 with the game
+-Route 2 with the Top 10 rank: Show a rank of 10 best scores and the players who reached them
 
 Refactor the code
 
