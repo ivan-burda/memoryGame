@@ -2,31 +2,24 @@ export const LOAD_CARDS = "LOAD_CARDS";
 export const FLIP_CARD = "FLIP_CARD";
 export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
 export const MARK_MATCHED = "MARK_MATCHED";
+export const RESET_CARDS = "RESET_CARDS";
 
-class Card {}
+const createCard = (cards, card, variant) => ({
+  matchingId: cards.indexOf(card) + 1,
+  uniqueId: `${cards.indexOf(card) + 1}${variant}`,
+  imgFilename: card,
+  randomFactor: Math.floor(Math.random() * 100) + 1,
+  matched: false,
+  flipped: false,
+  lastFlippedTime: Date.now(),
+});
 
 //LOAD CARDS
 export function loadCards(cards) {
   const cardData = {};
   cards.forEach((card) => {
-    cardData[`${cards.indexOf(card) + 1}a`] = {
-      matchingId: cards.indexOf(card) + 1,
-      uniqueId: `${cards.indexOf(card) + 1}a`,
-      imgFilename: card,
-      randomFactor: Math.floor(Math.random() * 100) + 1,
-      matched: false,
-      flipped: false,
-      lastFlippedTime: Date.now(),
-    };
-    cardData[`${cards.indexOf(card) + 1}b`] = {
-      matchingId: cards.indexOf(card) + 1,
-      uniqueId: `${cards.indexOf(card) + 1}b`,
-      imgFilename: card,
-      randomFactor: Math.floor(Math.random() * 100) + 1,
-      matched: false,
-      flipped: false,
-      lastFlippedTime: Date.now(),
-    };
+    cardData[`${cards.indexOf(card) + 1}a`] = createCard(cards, card, "a");
+    cardData[`${cards.indexOf(card) + 1}b`] = createCard(cards, card, "b");
   });
   return {
     type: LOAD_CARDS,
@@ -57,5 +50,12 @@ export function markMatched({ matched1, matched2 }) {
     type: MARK_MATCHED,
     matched1,
     matched2,
+  };
+}
+
+//RESET CARDS
+export function resetCards() {
+  return {
+    type: RESET_CARDS,
   };
 }

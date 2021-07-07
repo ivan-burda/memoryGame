@@ -1,4 +1,4 @@
-import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED } from "../actions/cards";
+import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED, RESET_CARDS } from "../actions/cards";
 
 export default function cards(state = [], action) {
   switch (action.type) {
@@ -32,13 +32,6 @@ export default function cards(state = [], action) {
         flippedBack.forEach((item) => (item.flipped = !item.flipped));
         flippedBack.forEach((item) => (flippedObj[item.uniqueId] = item));
       }
-
-      //console.log("flippedBack", flippedBack);
-      // console.log(updatedState);
-      // console.log(unwrappedItems);
-      // console.log(flippedBack);
-      // console.log(flippedObj);
-
       return {
         ...state,
         ...flippedObj,
@@ -53,6 +46,10 @@ export default function cards(state = [], action) {
         ...state,
         [action.matched1]: matched1Updated,
         [action.matched2]: matched2Updated,
+      };
+    case RESET_CARDS:
+      return {
+        ...state,
       };
     default:
       return state;
