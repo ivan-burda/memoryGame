@@ -13,40 +13,37 @@ export default function Card({ uniqueId }) {
   const [image, setImage] = React.useState(backImage);
   const [classList, setClassList] = React.useState([classes.Card]);
 
+  //Flips a card to show the image or reverts it to show the back
   React.useEffect(() => {
-    controlCardDisplay();
+    (async () => {
+      if (cardDetails.flipped === true) {
+        await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
+          setImage(image.default);
+        });
+      } else {
+        setImage(backImage);
+      }
+    })();
   }, [cardDetails.flipped]);
 
+  //Applies styling to a matched card
   React.useEffect(() => {
     if (cardDetails.matched) {
       setClassList(classList.concat(classes.Matched));
     }
   }, [cardDetails.matched]);
 
+  //If a match happens when the card gets flipped->request marching the pair as matched
   React.useEffect(() => {
     if (cards[uniqueId].flipped === true) {
       let relatedText = uniqueId.slice(-1);
       let relatedNumber = uniqueId.match(/\d+/)[0];
       let oppositeId = relatedNumber + (relatedText === "a" ? "b" : "a");
       if (cards[oppositeId].flipped === true) {
-        console.log("Its a match!");
         dispatch(markMatched({ matched1: uniqueId, matched2: oppositeId }));
-        dispatch(flipBackUnmatched({ exceptOf: uniqueId, match: true }));
-      } else {
-        dispatch(flipBackUnmatched({ exceptOf: uniqueId, match: false }));
       }
     }
   }, [cards[uniqueId].flipped]);
-
-  const controlCardDisplay = async () => {
-    if (cardDetails.flipped === true) {
-      await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
-        setImage(image.default);
-      });
-    } else {
-      setImage(backImage);
-    }
-  };
 
   const triggerFlip = () => {
     dispatch(flipBackUnmatched({ exceptOf: uniqueId }));
