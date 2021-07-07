@@ -1,0 +1,38 @@
+.Congratulations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -75px;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  border: 3px solid rgb(126, 139, 163);
+  box-shadow: 5px 5px 5px 1px rgba(50, 50, 50, 0.4);
+  background-color: white;
+  text-align: center;
+  z-index: 10;
+  padding: 1em;
+}
+
+.Congratulations p {
+  font-size: 1.5rem;
+}
+
+.Congratulations button {
+  margin: 0.5em;
+  cursor: pointer;
+  height: 40px;
+  width: 180px;
+  border: none;
+  background-color: rgb(126, 139, 163);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.Congratulations button:hover {
+  background-color: rgb(153, 164, 185);
+}

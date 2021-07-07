@@ -2,7 +2,6 @@ export const LOAD_CARDS = "LOAD_CARDS";
 export const FLIP_CARD = "FLIP_CARD";
 export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
 export const MARK_MATCHED = "MARK_MATCHED";
-export const RESET_CARDS = "RESET_CARDS";
 
 //LOAD CARDS
 export function loadCards(cards) {
@@ -41,6 +40,6 @@ export function markMatched({ matched1, matched2 }) {
 //RESET CARDS
 export function resetCards() {
   return {
-    type: RESET_CARDS,
+    type: LOAD_CARDS,
   };
 }

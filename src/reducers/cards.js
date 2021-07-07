@@ -38,7 +38,6 @@ export default function cards(state = [], action) {
       let updatedState = { ...state };
       let cardsToFlipBack = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false && item.uniqueId !== action.exceptOf);
       let numberOfCardsToFlipBack = cardsToFlipBack.length;
-      console.log(numberOfCardsToFlipBack);
       let flippedBack = [];
       let flippedObj = {};
       if (numberOfCardsToFlipBack === 2) {
@@ -60,10 +59,6 @@ export default function cards(state = [], action) {
         ...state,
         [action.matched1]: matched1Updated,
         [action.matched2]: matched2Updated,
-      };
-    case RESET_CARDS:
-      return {
-        ...state,
       };
     default:
       return state;
