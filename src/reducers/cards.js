@@ -1,4 +1,4 @@
-import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED, RESET_CARDS } from "../actions/cards";
+import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED } from "../actions/cards";
 
 function createCard(cards, card, variant) {
   return {

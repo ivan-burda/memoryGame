@@ -1,6 +1,6 @@
-import { SHOW_CONGRATS, INCREASE_FLIP_COUNT } from "../actions/game";
+import { SHOW_CONGRATS, INCREASE_FLIP_COUNT, RESET_FLIP_COUNT } from "../actions/game";
 
-export default function game(state = { flipCount: 0 }, action) {
+export default function game(state = { flipCount: 0, timeResetRequired: false }, action) {
   switch (action.type) {
     case SHOW_CONGRATS:
       return {
@@ -12,6 +12,11 @@ export default function game(state = { flipCount: 0 }, action) {
       return {
         ...state,
         flipCount: (state.flipCount += 1),
+      };
+    case RESET_FLIP_COUNT:
+      return {
+        ...state,
+        flipCount: 0,
       };
 
     default:
