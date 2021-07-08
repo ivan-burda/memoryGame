@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { flipCard, markMatched, flipBackUnmatched } from "../../actions/cards";
+import { increaseFlipCount } from "../../actions/game";
 import backImage from "../../media/back.png";
 
 import classes from "./Card.module.css";
@@ -19,6 +20,7 @@ export default function Card({ uniqueId }) {
       if (cardDetails.flipped === true) {
         await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
           setImage(image.default);
+          dispatch(increaseFlipCount());
         });
       } else {
         setImage(backImage);
