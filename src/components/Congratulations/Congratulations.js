@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { resetCards } from "../../actions/cards";
-import { resetFlipCount } from "../../actions/game";
+import { resetFlipCount, setTimeBehaviour } from "../../actions/game";
 import imgFilenames from "../../media/imgFilenames";
 import classes from "./Congratulations.module.css";
 
@@ -10,6 +10,7 @@ export default function Congratulations() {
   const restartGame = () => {
     dispatch(resetCards(imgFilenames(3)));
     dispatch(resetFlipCount());
+    dispatch(setTimeBehaviour("RESTART"));
   };
   return (
     <div className={classes.Congratulations}>
