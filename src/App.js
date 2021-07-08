@@ -5,6 +5,7 @@ import { loadCards } from "./actions/cards";
 import imgFilenames from "./media/imgFilenames";
 
 import Maingrid from "./contexts/Maingrid/Maingrid";
+import Timer from "./components/Timer/Timer";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Maingrid />
+      <Timer />
     </div>
   );
 }
