@@ -15,8 +15,8 @@ Matched pairs stay flipped  --DONE
 Make matched pair transparent
 If all pairs are matched show congratulations and offer a game reset option  --DONE
 
-Count number of flips needed 
-Count time needed 
+Count number of flips needed   --DONE
+Count time needed   --DONE
 Ask player for their name
 Get the existing counts, time and names from the server
 Submit the new counts, time and name to the server once the game is over - most important is the time. If identical the the number of flips.
