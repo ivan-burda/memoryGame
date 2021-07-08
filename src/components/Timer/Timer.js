@@ -1,11 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function Timer() {
+  let gameFinished = useSelector((state) => state.game.showCongrats);
   let [secCounter, setSecCounter] = React.useState(0);
 
-  setTimeout(function time() {
-    setSecCounter(secCounter + 1);
-  }, 1000);
+  if (!gameFinished) {
+    setTimeout(function time() {
+      setSecCounter(secCounter + 1);
+    }, 1000);
+  }
 
   const displayTime = () => {
     let minutes = parseInt(secCounter / 60);

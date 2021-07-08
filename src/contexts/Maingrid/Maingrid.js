@@ -14,10 +14,6 @@ export default function Maingrid() {
   //Triggers congratulations if all cards are matched
   React.useEffect(() => {
     if (cards.length > 0) {
-      console.log(
-        "All cards matched",
-        cards.every((card) => card.matched === true)
-      );
       dispatch(showCongrats(cards.every((card) => card.matched === true)));
     }
   }, [cards]);
@@ -25,7 +21,6 @@ export default function Maingrid() {
   if (cards.length === 0) {
     return <div>...</div>;
   } else {
-    console.log(congratulate);
     return (
       <div className={classes.Maingrid}>
         {congratulate === true ? <Congratulations /> : null}

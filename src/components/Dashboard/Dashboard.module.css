@@ -1,0 +1,18 @@
+.Dashboard {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0.5em 1.5em;
+  background-color: rgb(104, 155, 156);
+  margin-bottom: 2em;
+  justify-content: space-between;
+  align-items: center;
+  color: ghostwhite;
+  font-weight: 600;
+}
+
+.Timer {
+  display: flex;
+  flex-direction: row;
+  margin: 0 1em;
+}

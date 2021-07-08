@@ -4,8 +4,8 @@ import "./App.css";
 import { loadCards } from "./actions/cards";
 import imgFilenames from "./media/imgFilenames";
 
+import Dashboard from "./components/Dashboard/Dashboard";
 import Maingrid from "./contexts/Maingrid/Maingrid";
-import Timer from "./components/Timer/Timer";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
+      <Dashboard />
       <Maingrid />
-      <Timer />
     </div>
   );
 }
