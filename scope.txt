@@ -17,7 +17,7 @@ If all pairs are matched show congratulations and offer a game reset option  --D
 
 Count number of flips needed   --DONE
 Count time needed   --DONE
-Ask player for their name
+Ask player for their name   --DONE
 Get the existing counts, time and names from the server
 Submit the new counts, time and name to the server once the game is over - most important is the time. If identical the the number of flips.
 Every score object also includes a timestamp of when it happened

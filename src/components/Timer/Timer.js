@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showCongrats } from "../../actions/game";
 import { increaseTimer } from "../../actions/timer";
+import classes from "./Timer.module.css";
 
 export default function Timer() {
   const dispatch = useDispatch();
@@ -25,8 +26,9 @@ export default function Timer() {
   };
 
   return (
-    <div>
-      <p>{displayTime()}</p>
+    <div className={classes.Timer}>
+      <p>Timer: </p>
+      <p style={{ marginLeft: "0.5em" }}>{displayTime()}</p>
     </div>
   );
 }

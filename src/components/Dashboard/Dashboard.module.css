@@ -5,14 +5,29 @@
   padding: 0.5em 1.5em;
   background-color: rgb(104, 155, 156);
   margin-bottom: 2em;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: ghostwhite;
   font-weight: 600;
+  height: 50px;
 }
 
-.Timer {
+.DashboardWrapper {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  margin: 0 1em;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  flex-wrap: wrap;
+}
+
+.NameInput {
+  border-radius: 5px;
+  height: 1.75em;
+  border: none;
+  background-color: rgb(175, 208, 209);
+  padding: 0.5em;
+  color: rgb(21, 66, 66);
+  font-weight: 600;
 }
