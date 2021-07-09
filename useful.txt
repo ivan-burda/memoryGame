@@ -1,0 +1,2 @@
+Install firebase 
+https://firebase.google.com/docs/web/setup
