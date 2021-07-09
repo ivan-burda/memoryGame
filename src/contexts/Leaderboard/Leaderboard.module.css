@@ -1,0 +1,42 @@
+.Loading {
+  padding: 1em;
+  text-align: center;
+  font-size: 1.2rem;
+  color: antiquewhite;
+}
+
+.Leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.Header p {
+  background-color: rgb(104, 155, 156);
+  color: #fff;
+  text-align: center;
+  padding: 0.25em;
+}
+
+.Rank,
+.Flips,
+.Time {
+  width: 15%;
+}
+.Name {
+  width: 55%;
+}
