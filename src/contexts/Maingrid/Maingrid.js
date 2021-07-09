@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showCongrats } from "../../actions/game";
+import { pauseTimer } from "../../actions/timer";
 import Card from "../../components/Card/Card";
 import Congratulations from "../../components/Congratulations/Congratulations";
 
@@ -14,7 +15,11 @@ export default function Maingrid() {
   //Triggers congratulations if all cards are matched
   React.useEffect(() => {
     if (cards.length > 0) {
-      dispatch(showCongrats(cards.every((card) => card.matched === true)));
+      let areAllCardsMatched = cards.every((card) => card.matched === true);
+      dispatch(showCongrats(areAllCardsMatched));
+      if (areAllCardsMatched) {
+        dispatch(dispatch(pauseTimer()));
+      }
     }
   }, [cards]);
 
