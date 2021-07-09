@@ -4,14 +4,16 @@ import classes from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className={classes.Footer}>
       <nav>
         <ul>
           <li>
-            <NavLink to="/" exact activeClassName={classes.active}>
+            <NavLink to="/" exact activeClassName={classes.active} className={classes.Link}>
               Game
             </NavLink>
-            <NavLink to="/leaderboard" activeClassName={classes.active}>
+          </li>
+          <li>
+            <NavLink to="/leaderboard" activeClassName={classes.active} className={classes.Link}>
               Leaderboard
             </NavLink>
           </li>
