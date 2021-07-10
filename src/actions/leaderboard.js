@@ -1,5 +1,6 @@
-import { receiveServerItems } from "../api/api";
+import { receiveServerItems, addServerItem } from "../api/api";
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
+export const ADD_ITEM = "ADD_ITEM";
 
 // RECEIVE ITEMS
 function receiveItems(items) {
@@ -16,5 +17,20 @@ export function handleReceiveServerItems() {
       dispatch(receiveItems(data));
       //dispatch(hideLoading());
     });
+  };
+}
+
+// ADD AN ITEM
+function addItem(newItem) {
+  return {
+    type: ADD_ITEM,
+    newItem,
+  };
+}
+
+export function handleAddServerItem(newItem) {
+  return (dispatch) => {
+    dispatch(addItem(newItem));
+    addServerItem(newItem);
   };
 }

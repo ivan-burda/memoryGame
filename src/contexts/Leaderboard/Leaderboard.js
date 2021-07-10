@@ -21,15 +21,15 @@ export default function Leaderboard() {
   } else {
     const leaderboardItemsSorted = Object.keys(leaderboardListItems)
       .map((id) => {
-        const { name, flips, time } = leaderboardListItems[id];
+        const { name, requiredFlips, time } = leaderboardListItems[id];
         return {
           id,
           name,
-          flips,
+          requiredFlips,
           time,
         };
       })
-      .sort((a, b) => b.flips - a.flips);
+      .sort((a, b) => a.requiredFlips - b.requiredFlips);
 
     return (
       <ul className={classes.Leaderboard}>

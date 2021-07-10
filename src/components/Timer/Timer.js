@@ -4,6 +4,15 @@ import { showCongrats } from "../../actions/game";
 import { increaseTimer } from "../../actions/timer";
 import classes from "./Timer.module.css";
 
+export function displayTime(timerTime) {
+  let minutes = parseInt(timerTime / 60);
+  let minutesPrecedingZero = minutes < 10 ? "0" : "";
+  let secondes = timerTime - minutes * 60;
+  let secondesPrecedingZero = secondes < 10 ? "0" : "";
+  let display = `${minutesPrecedingZero}${minutes}:${secondesPrecedingZero}${secondes}`;
+  return display;
+}
+
 export default function Timer() {
   const dispatch = useDispatch();
 
@@ -16,19 +25,10 @@ export default function Timer() {
     }, 1000);
   }
 
-  const displayTime = () => {
-    let minutes = parseInt(timerTime / 60);
-    let minutesPrecedingZero = minutes < 10 ? "0" : "";
-    let secondes = timerTime - minutes * 60;
-    let secondesPrecedingZero = secondes < 10 ? "0" : "";
-    let display = `${minutesPrecedingZero}${minutes}:${secondesPrecedingZero}${secondes}`;
-    return display;
-  };
-
   return (
     <div className={classes.Timer}>
       <p>Timer: </p>
-      <p style={{ marginLeft: "0.5em" }}>{displayTime()}</p>
+      <p style={{ marginLeft: "0.5em" }}>{displayTime(timerTime)}</p>
     </div>
   );
 }

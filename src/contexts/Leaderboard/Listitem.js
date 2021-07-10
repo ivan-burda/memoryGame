@@ -7,7 +7,18 @@ export default function Listitem({ id }) {
   const item = allItems[id];
 
   const getRank = (id) => {
-    let itemsSortedByFlips = Object.keys(allItems).sort((a, b) => b.requiredFlips - a.requiredFlips);
+    let itemsSortedByFlips = Object.keys(allItems)
+      .map((item) => {
+        const { name, requiredFlips, time } = allItems[item];
+        console.log(allItems[item]);
+        return {
+          id,
+          name,
+          requiredFlips,
+          time,
+        };
+      })
+      .sort((a, b) => a.requiredFlips - b.requiredFlips);
     return itemsSortedByFlips.indexOf(id) + 1;
   };
 
@@ -15,8 +26,8 @@ export default function Listitem({ id }) {
     <li className={classes.Listitem} key={item.id}>
       <p className={classes.Rank}>{getRank(id)}</p>
       <p className={classes.Name}>{item.name}</p>
-      <p className={classes.Flips}>{item.requiredFlips}</p>
       <p className={classes.Time}>{item.time}</p>
+      <p className={classes.Flips}>{item.requiredFlips}</p>
     </li>
   );
 }
