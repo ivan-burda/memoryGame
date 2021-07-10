@@ -13,7 +13,6 @@ export default function Maingrid() {
 
   const name = useSelector((state) => state.game.name);
   const cards = Object.values(useSelector((state) => state.cards)).sort((a, b) => a.randomFactor - b.randomFactor);
-  const congratulate = useSelector((state) => state.game.showCongrats);
 
   //Shows or hides congrats depneding whether all cards are matched
   React.useEffect(() => {
@@ -38,7 +37,6 @@ export default function Maingrid() {
   } else {
     return (
       <div className={classes.Maingrid}>
-        {congratulate === true ? <Congratulations /> : null}
         {cards.map((card) => (
           <Card uniqueId={card.uniqueId} key={card.uniqueId} />
         ))}

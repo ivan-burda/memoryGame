@@ -9,11 +9,13 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Maingrid from "./contexts/Maingrid/Maingrid";
 import Leaderboard from "./contexts/Leaderboard/Leaderboard";
 import Footer from "./components/Footer/Footer";
+import Congratulations from "./components/Congratulations/Congratulations";
 
 function App() {
   const dispatch = useDispatch();
   const nameAvailable = useSelector((state) => state.game.name);
   const pairs = useSelector((state) => state.game.pairs);
+  const congratulate = useSelector((state) => state.game.showCongrats);
   React.useEffect(() => {
     if (nameAvailable !== "") {
       dispatch(loadCards(imgFilenames(pairs)));
@@ -23,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <Dashboard />
+      {congratulate === true ? <Congratulations /> : null}
       <Switch>
         <Route path="/leaderboard" exact component={Leaderboard} />
         <Route path="/" exact component={Maingrid} />

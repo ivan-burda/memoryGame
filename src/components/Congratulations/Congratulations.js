@@ -29,11 +29,13 @@ export default function Congratulations() {
     dispatch(handleAddServerItem(newLeaderBoardItem));
   };
   return (
-    <div className={classes.Congratulations}>
-      <p>Congratulations!</p>
-      <button type="button" onClick={() => restartGame()}>
-        Play again
-      </button>
+    <div className={classes.Container} onClick={(e) => false}>
+      <div className={classes.Congratulations}>
+        <p>Congratulations!</p>
+        <button type="button" onClick={() => restartGame()}>
+          Play again
+        </button>
+      </div>
     </div>
   );
 }
