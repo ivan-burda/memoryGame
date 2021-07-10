@@ -19,9 +19,10 @@ export default function Congratulations() {
     name: name,
     requiredFlips: flipCount,
     time: displayTime(timerTime),
+    secondCount: timerTime,
   };
   const restartGame = () => {
-    dispatch(resetCards(imgFilenames(12)));
+    dispatch(resetCards(imgFilenames(2)));
     dispatch(resetFlipCount());
     dispatch(startTimer());
     dispatch(handleAddServerItem(newLeaderBoardItem));

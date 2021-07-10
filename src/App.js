@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(loadCards(imgFilenames(12)));
+    dispatch(loadCards(imgFilenames(2)));
   }, [dispatch]);
 
   return (

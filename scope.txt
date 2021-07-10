@@ -22,8 +22,8 @@ Get the existing counts, time and names from the server   --DONE
 Submit the new counts, time and name to the server once the game is over - most important is the time. If identical the the number of flips.   --DONE
 
 Have two routes: --DONE
--Route 1 with the game
--Route 2 with the Top 10 rank: Show a rank of 10 best scores and the players who reached them
+-Route 1 with the game --DONE
+-Route 2 with the Top 10 rank: Show a rank of 10 best scores and the players who reached them --DONE
 
 
 Require the use to provide a name
