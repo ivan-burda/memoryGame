@@ -10,16 +10,14 @@ import Maingrid from "./contexts/Maingrid/Maingrid";
 import Leaderboard from "./contexts/Leaderboard/Leaderboard";
 import Footer from "./components/Footer/Footer";
 
-export function StartGame() {}
-
-export function RestartGame() {}
-
 function App() {
   const dispatch = useDispatch();
-
+  const nameAvailable = useSelector((state) => state.game.name);
   React.useEffect(() => {
-    dispatch(loadCards(imgFilenames(2)));
-  }, [dispatch]);
+    if (nameAvailable !== "") {
+      dispatch(loadCards(imgFilenames(2)));
+    }
+  }, [nameAvailable, dispatch]);
 
   return (
     <div className="App">

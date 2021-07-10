@@ -1,6 +1,6 @@
 import { SHOW_CONGRATS, INCREASE_FLIP_COUNT, RESET_FLIP_COUNT, SET_NAME } from "../actions/game";
 
-export default function game(state = { flipCount: 0, showCongrats: false, name: "" }, action) {
+export default function game(state = { flipCount: 0, showCongrats: false, name: "Nameless" }, action) {
   switch (action.type) {
     case SHOW_CONGRATS:
       return {

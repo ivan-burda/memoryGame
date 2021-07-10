@@ -2,7 +2,7 @@ import { START_TIMER, INCREASE_TIMER, PAUSE_TIMER } from "../actions/timer";
 
 export default function timer(
   state = {
-    timerOn: true,
+    timerOn: false,
     timerTime: 0,
   },
   action

@@ -1,10 +1,15 @@
 import React from "react";
-import { VscDebugRestart } from "react-icons/Vsc";
+import { useSelector } from "react-redux";
+import { VscDebugStart } from "react-icons/vsc";
+import { VscDebugRestart } from "react-icons/vsc";
+import classes from "./StartRestart.module.css";
 
 export default function StartRestart() {
+  const gameRunning = useSelector((state) => state.timer.timerOn);
+  console.log(gameRunning);
   return (
-    <button type="button">
-      <VscDebugRestart />
+    <button type="button" className={classes.Button}>
+      {!gameRunning ? <VscDebugStart /> : <VscDebugRestart />}
     </button>
   );
 }
