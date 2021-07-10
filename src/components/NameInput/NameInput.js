@@ -4,7 +4,7 @@ import { setName } from "../../actions/game";
 
 import { resetCards } from "../../actions/cards";
 import { resetFlipCount } from "../../actions/game";
-import { startTimer, resetTimer } from "../../actions/timer";
+import { startTimer, pauseTimer } from "../../actions/timer";
 
 import imgFilenames from "../../media/imgFilenames";
 
@@ -12,16 +12,14 @@ import classes from "./NameInput.module.css";
 
 export default function NameInput() {
   const dispatch = useDispatch();
+  const name = useSelector((state) => state.game.name);
   const [classList, setclassList] = React.useState([classes.NameInput]);
   const [inputfieldName, setInputfieldName] = React.useState("");
-  const name = useSelector((state) => state.game.name);
   const pairs = useSelector((state) => state.game.pairs);
 
   React.useEffect(() => {
-    if (inputfieldName === "") {
-      setclassList(classList.concat(classes.InputEmpty));
-    } else {
-      setclassList([classes.NameInput]);
+    if (!name) {
+      dispatch(pauseTimer());
     }
   }, [name]);
 

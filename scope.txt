@@ -27,14 +27,12 @@ Have two routes: --DONE
 
 
 Ask the user to provide a name --DONE
-Name can be changed while playing, but this will not stop the time
-Start the game only if a name is provided 
-Pause the time when switched to leaderboard + unpause when switched back 
+Start the game only if a name is provided  --DONE
+Pause the time when switched to leaderboard + unpause when switched back  --DONE
 
 When congratulating, inform the player additionally about their rank if their score reached the top 10
-Rank the leaderboard based on the best time 
-Show in the leaderboard only 10 best entries
-Allow deleting an item from the top10 leaderboard
+Rank the leaderboard based on the best time  --DONE
+Show in the leaderboard only 10 best entries --DONE
 
 Set 18 pairs
 Get some better images

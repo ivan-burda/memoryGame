@@ -1,11 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import classes from "./Footer.module.css";
 import { unpauseTimer } from "../../actions/timer";
 
 export default function Footer() {
   const dispatch = useDispatch();
+  const name = useSelector((state) => state.game.name);
   return (
     <footer className={classes.Footer}>
       <nav>
@@ -18,7 +19,9 @@ export default function Footer() {
               className={classes.Link}
               onClick={() => {
                 setTimeout(function () {
-                  dispatch(unpauseTimer());
+                  if (name !== "") {
+                    dispatch(unpauseTimer());
+                  }
                 }, 500);
               }}
             >

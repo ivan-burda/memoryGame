@@ -9,7 +9,7 @@ export default function LeaderboardEntry({ id }) {
   const getRank = (id, leaderboardEntries) => {
     return (
       Object.values(leaderboardEntries)
-        .sort((a, b) => a.secondCount - b.secondCount)
+        .sort((a, b) => a.secondCount - b.secondCount || a.requiredFlips - b.requiredFlips)
         .map((entry) => entry.id)
         .indexOf(id) + 1
     );
