@@ -21,18 +21,3 @@
   max-width: 600px;
   flex-wrap: wrap;
 }
-
-.NameInput {
-  border-radius: 5px;
-  height: 2.2em;
-  width: 120px;
-  border: none;
-  background-color: rgb(175, 208, 209);
-  padding: 0.5em;
-  color: rgb(21, 66, 66);
-  font-weight: 600;
-}
-
-.InputEmpty {
-  border: 2px solid red;
-}

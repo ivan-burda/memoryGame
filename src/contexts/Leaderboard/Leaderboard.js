@@ -1,8 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleReceiveServerItems } from "../../actions/leaderboard";
+import { pauseTimer } from "../../actions/timer";
 import classes from "./Leaderboard.module.css";
 import LeaderboardEntry from "./LeaderboardEntry";
+
+import { resetCards } from "../../actions/cards";
+import { resetFlipCount } from "../../actions/game";
+import imgFilenames from "../../media/imgFilenames";
 
 export default function Leaderboard() {
   const dispatch = useDispatch();
@@ -10,6 +15,7 @@ export default function Leaderboard() {
 
   React.useEffect(() => {
     dispatch(handleReceiveServerItems());
+    dispatch(dispatch(pauseTimer()));
   }, [dispatch]);
 
   if (Object.keys(leaderboardEntries).length === 0) {

@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCards } from "../../actions/cards";
 import { resetFlipCount } from "../../actions/game";
-import { handleAddServerItem } from "../../actions/leaderboard";
 import { startTimer, resetTimer } from "../../actions/timer";
+import { handleAddServerItem } from "../../actions/leaderboard";
 import imgFilenames from "../../media/imgFilenames";
 import { displayTime } from "../Timer/Timer";
 import classes from "./Congratulations.module.css";
@@ -14,6 +14,7 @@ export default function Congratulations() {
   const name = useSelector((state) => state.game.name);
   const flipCount = useSelector((state) => state.game.flipCount);
   const timerTime = useSelector((state) => state.timer.timerTime);
+  const pairs = useSelector((state) => state.game.pairs);
   let newLeaderBoardItem = {
     id: uuidv4(),
     name: name,
@@ -22,7 +23,7 @@ export default function Congratulations() {
     secondCount: timerTime,
   };
   const restartGame = () => {
-    dispatch(resetCards(imgFilenames(2)));
+    dispatch(resetCards(imgFilenames(pairs)));
     dispatch(resetFlipCount());
     dispatch(startTimer());
     dispatch(handleAddServerItem(newLeaderBoardItem));

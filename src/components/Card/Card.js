@@ -11,6 +11,7 @@ export default function Card({ uniqueId }) {
   const dispatch = useDispatch();
   const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const cards = useSelector((state) => state.cards);
+  const timerOn = useSelector((state) => state.timer.timerOn);
   const [image, setImage] = React.useState(backImage);
   const [classList, setClassList] = React.useState([classes.Card]);
 
@@ -20,13 +21,15 @@ export default function Card({ uniqueId }) {
       if (cardDetails.flipped === true) {
         await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
           setImage(image.default);
-          dispatch(increaseFlipCount());
+          if (timerOn === true) {
+            dispatch(increaseFlipCount());
+          }
         });
       } else {
         setImage(backImage);
       }
     })();
-  }, [cardDetails.flipped]);
+  }, [cardDetails.flipped, dispatch, cardDetails.imgFilename]);
 
   //Applies styling to a matched card
   React.useEffect(() => {

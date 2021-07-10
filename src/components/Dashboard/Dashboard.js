@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Timer from "../Timer/Timer";
 import classes from "./Dashboard.module.css";
-import StartRestart from "../StartRestart/StartRestart";
 
 export default function Dashboard() {
   const flipCount = useSelector((state) => state.game.flipCount);
@@ -15,7 +14,6 @@ export default function Dashboard() {
         <p>Total flips: {flipCount}</p>
         <Timer />
         <p>{name}</p>
-        <StartRestart />
       </div>
     </div>
   );

@@ -9,4 +9,5 @@
   width: 100vw;
   margin: 0 auto;
   margin-bottom: 2em;
+  min-height: 200px;
 }

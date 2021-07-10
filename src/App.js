@@ -13,11 +13,12 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const dispatch = useDispatch();
   const nameAvailable = useSelector((state) => state.game.name);
+  const pairs = useSelector((state) => state.game.pairs);
   React.useEffect(() => {
     if (nameAvailable !== "") {
-      dispatch(loadCards(imgFilenames(2)));
+      dispatch(loadCards(imgFilenames(pairs)));
     }
-  }, [nameAvailable, dispatch]);
+  }, [nameAvailable, dispatch, pairs]);
 
   return (
     <div className="App">
