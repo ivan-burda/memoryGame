@@ -10,6 +10,10 @@ import Maingrid from "./contexts/Maingrid/Maingrid";
 import Leaderboard from "./contexts/Leaderboard/Leaderboard";
 import Footer from "./components/Footer/Footer";
 
+export function StartGame() {}
+
+export function RestartGame() {}
+
 function App() {
   const dispatch = useDispatch();
 

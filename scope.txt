@@ -26,7 +26,7 @@ Have two routes: --DONE
 -Route 2 with the Top 10 rank: Show a rank of 10 best scores and the players who reached them --DONE
 
 
-Require the use to provide a name
+Ask the user to provide a name --DONE
 Name can be changed while playing, but this will not stop the time
 Start the game only if a name is provided 
 Pause the time when switched to leaderboard + unpause when switched back 
