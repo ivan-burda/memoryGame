@@ -26,17 +26,24 @@ Have two routes: --DONE
 -Route 2 with the Top 10 rank: Show a rank of 10 best scores and the players who reached them
 
 
-Pause the timer when typing in a name + unpause
-Pause the time when switched to leaderboard + unpause
-When congratulating, inform the player additionally if the score reached the top 10
+Require the use to provide a name
+Name can be changed while playing, but this will not stop the time
+Start the game only if a name is provided 
+Pause the time when switched to leaderboard + unpause when switched back 
+
+When congratulating, inform the player additionally about their rank if their score reached the top 10
 Rank the leaderboard based on the best time 
 Show in the leaderboard only 10 best entries
+Allow deleting an item from the top10 leaderboard
+
 Set 18 pairs
 Get some better images
-Get the images from a unsplash based on a topic selected by the user
 
 Refactor the code
 Use ubiquitous language
+
+Build and deploy, netlify, add ivanburda.com domain prefix
+Make sure it works also from another device such as my tablet
 
 // Testing 
 https://wanago.io/2019/12/16/javascript-testing-5-testing-hooks-with-react-hooks-testing-library-and-redux/
