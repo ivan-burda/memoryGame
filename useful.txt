@@ -1,2 +1,5 @@
 Install firebase 
 https://firebase.google.com/docs/web/setup
+
+Decoupling logics from visual components, custom hooks 
+https://medium.com/swlh/decoupling-logic-from-react-components-f6035646c275
