@@ -1,8 +1,6 @@
 import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { showCongrats } from "../../actions/game";
-import { pauseTimer } from "../../actions/timer";
 import { loadCards } from "../../actions/cards";
 import imgFilenames from "../../media/imgFilenames";
 
@@ -23,18 +21,6 @@ export default function Maingrid() {
       dispatch(loadCards(imgFilenames(pairCount)));
     }
   }, [name, dispatch, pairCount]);
-
-  //Shows or hides congrats depneding whether all cards are matched
-  React.useEffect(() => {
-    if (cards.length > 0) {
-      let areAllCardsMatched = cards.every((card) => card.matched === true);
-      dispatch(showCongrats(areAllCardsMatched));
-      //If all matched - stop timer
-      if (areAllCardsMatched) {
-        dispatch(dispatch(pauseTimer()));
-      }
-    }
-  }, [cards]);
 
   //Ask player for name if unknown
   if (name === "") {

@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { useRestartGame } from "../useRestartGame/useRestartGame";
 import { handleAddServerItem } from "../../actions/leaderboard";
+import { pauseTimer } from "../../actions/timer";
 import { displayTime } from "../Timer/Timer";
 
 import classes from "./Congratulations.module.css";
@@ -14,8 +15,8 @@ export default function Congratulations() {
 
   const name = useSelector((state) => state.game.name);
   const flipCount = useSelector((state) => state.game.flipCount);
-  const showCongrats = useSelector((state) => state.game.showCongrats);
   const timerTime = useSelector((state) => state.timer.timerTime);
+  const cards = Object.values(useSelector((state) => state.cards));
 
   let newLeaderBoardItem = {
     id: uuidv4(),
@@ -25,7 +26,9 @@ export default function Congratulations() {
     secondCount: timerTime,
   };
 
-  if (showCongrats) {
+  if (cards.length > 0 && cards.every((card) => card.matched === true)) {
+    dispatch(dispatch(pauseTimer()));
+
     return (
       <div className={classes.Container} onClick={() => false}>
         <div className={classes.Congratulations}>
@@ -33,8 +36,8 @@ export default function Congratulations() {
           <button
             type="button"
             onClick={() => {
-              dispatch(handleAddServerItem(newLeaderBoardItem));
               restartGame();
+              dispatch(handleAddServerItem(newLeaderBoardItem));
             }}
           >
             Play again
