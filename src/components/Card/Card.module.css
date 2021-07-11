@@ -27,3 +27,11 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 700px) {
+  .Card {
+    width: 75px;
+    height: 75px;
+    border-width: 2px;
+  }
+}

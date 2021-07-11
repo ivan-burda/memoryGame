@@ -11,3 +11,10 @@
   margin-bottom: 2em;
   min-height: 200px;
 }
+
+@media screen and (max-width: 700px) {
+  .Maingrid {
+    grid-template-columns: repeat(auto-fill, 75px);
+    grid-gap: 10px;
+  }
+}

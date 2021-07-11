@@ -21,3 +21,7 @@
   max-width: 600px;
   flex-wrap: wrap;
 }
+
+.Dashboard p {
+  margin: 0 1em;
+}
