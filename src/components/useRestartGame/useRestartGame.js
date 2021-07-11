@@ -1,0 +1,21 @@
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { resetCards } from "../../actions/cards";
+import { resetFlipCount } from "../../actions/game";
+import { startTimer } from "../../actions/timer";
+
+import imgFilenames from "../../media/imgFilenames";
+
+export const useRestartGame = () => {
+  const dispatch = useDispatch();
+  const pairCount = useSelector((state) => state.game.pairCount);
+
+  const useRestartGame = () => {
+    dispatch(resetCards(imgFilenames(pairCount)));
+    dispatch(resetFlipCount());
+    dispatch(startTimer());
+  };
+
+  return useRestartGame;
+};

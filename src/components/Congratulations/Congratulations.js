@@ -2,21 +2,18 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { resetCards } from "../../actions/cards";
-import { resetFlipCount } from "../../actions/game";
-import { startTimer } from "../../actions/timer";
+import { useRestartGame } from "../useRestartGame/useRestartGame";
 import { handleAddServerItem } from "../../actions/leaderboard";
 import { displayTime } from "../Timer/Timer";
 
-import imgFilenames from "../../media/imgFilenames";
 import classes from "./Congratulations.module.css";
 
 export default function Congratulations() {
   const dispatch = useDispatch();
+  const restartGame = useRestartGame();
 
   const name = useSelector((state) => state.game.name);
   const flipCount = useSelector((state) => state.game.flipCount);
-  const pairCount = useSelector((state) => state.game.pairCount);
   const showCongrats = useSelector((state) => state.game.showCongrats);
   const timerTime = useSelector((state) => state.timer.timerTime);
 
@@ -26,12 +23,6 @@ export default function Congratulations() {
     requiredFlips: flipCount,
     time: displayTime(timerTime),
     secondCount: timerTime,
-  };
-
-  const restartGame = () => {
-    dispatch(resetCards(imgFilenames(pairCount)));
-    dispatch(resetFlipCount());
-    dispatch(startTimer());
   };
 
   if (showCongrats) {

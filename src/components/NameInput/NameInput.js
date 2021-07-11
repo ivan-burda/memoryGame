@@ -1,32 +1,23 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { setName } from "../../actions/game";
-
-import { resetCards } from "../../actions/cards";
-import { resetFlipCount } from "../../actions/game";
-import { startTimer, pauseTimer } from "../../actions/timer";
-
-import imgFilenames from "../../media/imgFilenames";
+import { pauseTimer } from "../../actions/timer";
+import { useRestartGame } from "../useRestartGame/useRestartGame";
 
 import classes from "./NameInput.module.css";
 
 export default function NameInput() {
   const dispatch = useDispatch();
+  const restartGame = useRestartGame();
   const name = useSelector((state) => state.game.name);
-  const pairCount = useSelector((state) => state.game.pairCount);
   const [inputfieldName, setInputfieldName] = React.useState("");
 
   React.useEffect(() => {
     if (!name) {
       dispatch(pauseTimer());
     }
-  }, [name]);
-
-  const restartGame = () => {
-    dispatch(resetCards(imgFilenames(pairCount)));
-    dispatch(resetFlipCount());
-    dispatch(startTimer());
-  };
+  }, [name, dispatch]);
 
   return (
     <div>
