@@ -36,10 +36,8 @@ Show in the leaderboard only 10 best entries --DONE
 When congratulating, inform the player additionally about their rank if their score reached the top 10
 If more than 10 leaderboard entries received from the server then keep only top10 and submit those to the server
 Get some better images
-
 Refactor the code
 Use ubiquitous language
-
 Build and deploy, netlify, add ivanburda.com domain prefix
 Make sure it works also from another device such as my tablet
 
