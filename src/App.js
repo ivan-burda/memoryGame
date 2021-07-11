@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -11,12 +11,10 @@ import Congratulations from "./components/Congratulations/Congratulations";
 import "./App.css";
 
 function App() {
-  const showCongrats = useSelector((state) => state.game.showCongrats);
-
   return (
     <div className="App">
       <Dashboard />
-      {showCongrats === true ? <Congratulations /> : null}
+      <Congratulations />
       <Switch>
         <Route path="/leaderboard" exact component={Leaderboard} />
         <Route path="/" exact component={Maingrid} />

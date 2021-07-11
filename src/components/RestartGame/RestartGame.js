@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { VscDebugRestart } from "react-icons/vsc";
 import { resetCards } from "../../actions/cards";
 import { resetFlipCount } from "../../actions/game";
 import imgFilenames from "../../media/imgFilenames";
-import { startTimer, resetTimer, unpauseTimer, pauseTimer } from "../../actions/timer";
+import { startTimer, resetTimer, pauseTimer } from "../../actions/timer";
 import classes from "./RestartGame.module.css";
 
 export default function RestartGame() {
