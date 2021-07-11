@@ -13,8 +13,8 @@ import classes from "./NameInput.module.css";
 export default function NameInput() {
   const dispatch = useDispatch();
   const name = useSelector((state) => state.game.name);
-  const [inputfieldName, setInputfieldName] = React.useState("");
   const pairCount = useSelector((state) => state.game.pairCount);
+  const [inputfieldName, setInputfieldName] = React.useState("");
 
   React.useEffect(() => {
     if (!name) {
@@ -26,13 +26,19 @@ export default function NameInput() {
     dispatch(resetCards(imgFilenames(pairCount)));
     dispatch(resetFlipCount());
     dispatch(startTimer());
-    dispatch(setName(inputfieldName));
   };
 
   return (
     <div>
       <input type="text" placeholder="Your name" className={classes.NameInput} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
-      <button type="button" className={classes.Button} onClick={() => restartGame()}>
+      <button
+        type="button"
+        className={classes.Button}
+        onClick={() => {
+          dispatch(setName(inputfieldName));
+          restartGame();
+        }}
+      >
         Start
       </button>
     </div>
