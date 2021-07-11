@@ -21,7 +21,7 @@ export default function Leaderboard() {
   if (Object.keys(leaderboardEntries).length === 0) {
     return (
       <div className={classes.Loading}>
-        <p>Loading... </p>
+        <p>No stats available yet </p>
       </div>
     );
   } else {

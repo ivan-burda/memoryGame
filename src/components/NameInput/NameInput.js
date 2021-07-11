@@ -34,7 +34,7 @@ export default function NameInput() {
     <div>
       <input type="text" placeholder="Your name" className={classList.join(" ")} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
       <button type="button" className={classes.Button} onClick={() => restartGame()}>
-        Play again
+        Start
       </button>
     </div>
   );
