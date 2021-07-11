@@ -3,6 +3,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showCongrats } from "../../actions/game";
 import { pauseTimer } from "../../actions/timer";
+import { loadCards } from "../../actions/cards";
+import imgFilenames from "../../media/imgFilenames";
 
 import Card from "../../components/Card/Card";
 import NameInput from "../../components/NameInput/NameInput";
@@ -13,7 +15,14 @@ export default function Maingrid() {
   const dispatch = useDispatch();
 
   const name = useSelector((state) => state.game.name);
+  const pairCount = useSelector((state) => state.game.pairCount);
   const cards = Object.values(useSelector((state) => state.cards)).sort((a, b) => a.randomFactor - b.randomFactor);
+
+  React.useEffect(() => {
+    if (name !== "") {
+      dispatch(loadCards(imgFilenames(pairCount)));
+    }
+  }, [name, dispatch, pairCount]);
 
   //Shows or hides congrats depneding whether all cards are matched
   React.useEffect(() => {
