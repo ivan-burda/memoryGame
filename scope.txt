@@ -41,10 +41,11 @@ Responsive for smaller displays --DONE
 
 Refactor the code
 Use ubiquitous language
+Game restart button
+Loading for the leaderboard
 Build and deploy, netlify, add ivanburda.com domain prefix
 Make sure it works also from another device such as my tablet
 
-Game restart button
 
 // Testing 
 https://wanago.io/2019/12/16/javascript-testing-5-testing-hooks-with-react-hooks-testing-library-and-redux/

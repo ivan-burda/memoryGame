@@ -2,32 +2,35 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { bulkDeleteServerItems } from "./api/api";
-import "./App.css";
 import { loadCards } from "./actions/cards";
-import imgFilenames from "./media/imgFilenames";
 
+import imgFilenames from "./media/imgFilenames";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Maingrid from "./contexts/Maingrid/Maingrid";
 import Leaderboard from "./contexts/Leaderboard/Leaderboard";
 import Footer from "./components/Footer/Footer";
 import Congratulations from "./components/Congratulations/Congratulations";
 
+import "./App.css";
+
 function App() {
   const dispatch = useDispatch();
   const nameAvailable = useSelector((state) => state.game.name);
-  const pairs = useSelector((state) => state.game.pairs);
-  const congratulate = useSelector((state) => state.game.showCongrats);
+  const pairCount = useSelector((state) => state.game.pairCount);
+  const showCongrats = useSelector((state) => state.game.showCongrats);
+
   React.useEffect(() => {
+    //
     bulkDeleteServerItems();
     if (nameAvailable !== "") {
-      dispatch(loadCards(imgFilenames(pairs)));
+      dispatch(loadCards(imgFilenames(pairCount)));
     }
-  }, [nameAvailable, dispatch, pairs]);
+  }, [nameAvailable, dispatch, pairCount]);
 
   return (
     <div className="App">
       <Dashboard />
-      {congratulate === true ? <Congratulations /> : null}
+      {showCongrats === true ? <Congratulations /> : null}
       <Switch>
         <Route path="/leaderboard" exact component={Leaderboard} />
         <Route path="/" exact component={Maingrid} />

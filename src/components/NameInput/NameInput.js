@@ -15,7 +15,7 @@ export default function NameInput() {
   const name = useSelector((state) => state.game.name);
   const [classList, setclassList] = React.useState([classes.NameInput]);
   const [inputfieldName, setInputfieldName] = React.useState("");
-  const pairs = useSelector((state) => state.game.pairs);
+  const pairCount = useSelector((state) => state.game.pairCount);
 
   React.useEffect(() => {
     if (!name) {
@@ -24,7 +24,7 @@ export default function NameInput() {
   }, [name]);
 
   const restartGame = () => {
-    dispatch(resetCards(imgFilenames(pairs)));
+    dispatch(resetCards(imgFilenames(pairCount)));
     dispatch(resetFlipCount());
     dispatch(startTimer());
     dispatch(setName(inputfieldName));

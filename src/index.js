@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import reducer from "./reducers/index";
+import middleware from "./middleware";
+
 import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import reducer from "./reducers/index";
-import middleware from "./middleware";
 
 import App from "./App";
 import "./index.css";

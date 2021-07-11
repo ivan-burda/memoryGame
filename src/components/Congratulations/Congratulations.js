@@ -14,7 +14,7 @@ export default function Congratulations() {
   const name = useSelector((state) => state.game.name);
   const flipCount = useSelector((state) => state.game.flipCount);
   const timerTime = useSelector((state) => state.timer.timerTime);
-  const pairs = useSelector((state) => state.game.pairs);
+  const pairCount = useSelector((state) => state.game.pairCount);
   let newLeaderBoardItem = {
     id: uuidv4(),
     name: name,
@@ -23,7 +23,7 @@ export default function Congratulations() {
     secondCount: timerTime,
   };
   const restartGame = () => {
-    dispatch(resetCards(imgFilenames(pairs)));
+    dispatch(resetCards(imgFilenames(pairCount)));
     dispatch(resetFlipCount());
     dispatch(startTimer());
     dispatch(handleAddServerItem(newLeaderBoardItem));

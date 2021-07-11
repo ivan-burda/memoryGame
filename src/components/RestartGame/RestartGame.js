@@ -9,10 +9,10 @@ import classes from "./RestartGame.module.css";
 
 export default function RestartGame() {
   const dispatch = useDispatch();
-  const pairs = useSelector((state) => state.game.pairs);
+  const pairCount = useSelector((state) => state.game.pairCount);
 
   const restartGame = () => {
-    dispatch(resetCards(imgFilenames(pairs)));
+    dispatch(resetCards(imgFilenames(pairCount)));
     setTimeout(() => {
       dispatch(resetFlipCount());
       dispatch(pauseTimer());
