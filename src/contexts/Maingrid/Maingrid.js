@@ -1,9 +1,10 @@
 import React from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { showCongrats } from "../../actions/game";
-import { pauseTimer, startTimer } from "../../actions/timer";
+import { pauseTimer } from "../../actions/timer";
+
 import Card from "../../components/Card/Card";
-import Congratulations from "../../components/Congratulations/Congratulations";
 import NameInput from "../../components/NameInput/NameInput";
 
 import classes from "./Maingrid.module.css";

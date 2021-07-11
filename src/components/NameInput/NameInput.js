@@ -13,7 +13,6 @@ import classes from "./NameInput.module.css";
 export default function NameInput() {
   const dispatch = useDispatch();
   const name = useSelector((state) => state.game.name);
-  const [classList, setclassList] = React.useState([classes.NameInput]);
   const [inputfieldName, setInputfieldName] = React.useState("");
   const pairCount = useSelector((state) => state.game.pairCount);
 
@@ -32,7 +31,7 @@ export default function NameInput() {
 
   return (
     <div>
-      <input type="text" placeholder="Your name" className={classList.join(" ")} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
+      <input type="text" placeholder="Your name" className={classes.NameInput} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
       <button type="button" className={classes.Button} onClick={() => restartGame()}>
         Start
       </button>

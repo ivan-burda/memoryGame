@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { bulkDeleteServerItems } from "./api/api";
 import { loadCards } from "./actions/cards";
 
 import imgFilenames from "./media/imgFilenames";
@@ -20,8 +19,6 @@ function App() {
   const showCongrats = useSelector((state) => state.game.showCongrats);
 
   React.useEffect(() => {
-    //
-    bulkDeleteServerItems();
     if (nameAvailable !== "") {
       dispatch(loadCards(imgFilenames(pairCount)));
     }

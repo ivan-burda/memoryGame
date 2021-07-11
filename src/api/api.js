@@ -36,10 +36,8 @@ export async function addServerItem(newItem) {
 }
 
 // Bulk-delete server items
-
 export async function bulkDeleteServerItems(data) {
   let newSet = {};
-
   if (data !== undefined && Object.values(data).length > 10) {
     Object.values(data)
       .sort((a, b) => a.secondCount - b.secondCount || a.requiredFlips - b.requiredFlips)
