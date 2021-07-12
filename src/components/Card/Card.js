@@ -12,6 +12,7 @@ export default function Card({ uniqueId }) {
   const cards = useSelector((state) => state.cards);
   const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const timerOn = useSelector((state) => state.timer.timerOn);
+
   const [image, setImage] = React.useState(backImage);
   const [classList, setClassList] = React.useState([classes.Card]);
 
