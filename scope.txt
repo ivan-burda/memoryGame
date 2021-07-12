@@ -39,8 +39,9 @@ If more than 10 leaderboard entries received from the server then keep only top1
 Responsive for smaller displays --DONE
 
 
-Refactor the code
-Use ubiquitous language
+Refactor the code --DONE
+Use ubiquitous language --DONE
+
 Game restart button
 Loading for the leaderboard
 Build and deploy, netlify, add ivanburda.com domain prefix
