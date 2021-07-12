@@ -49,10 +49,9 @@ export default function cards(state = [], action) {
         ...flippedObj,
       };
     case MARK_MATCHED_CARDS:
-      let updatedState2 = { ...state };
-      let matched1Updated = { ...updatedState2[`${action.matched1}`] };
+      let matched1Updated = { ...state[`${action.matched1}`] };
       matched1Updated.matched = true;
-      let matched2Updated = { ...updatedState2[`${action.matched2}`] };
+      let matched2Updated = { ...state[`${action.matched2}`] };
       matched2Updated.matched = true;
       return {
         ...state,
