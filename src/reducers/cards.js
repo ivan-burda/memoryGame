@@ -1,35 +1,34 @@
 import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED_CARDS, MARK_MATCHED_CARDS } from "../actions/cards";
 
+//A function for creating a card object
 function createCard(cards, card, variant) {
   return {
     matchingId: cards.indexOf(card) + 1,
     uniqueId: `${cards.indexOf(card) + 1}${variant}`,
     imgFilename: card,
-    randomFactor: Math.floor(Math.random() * 100) + 1,
+    randomFactor: Math.floor(Math.random() * 100) + 1, //To make sure cards are located at different positions. Based on the random factor they get ordered in the grid
     matched: false,
     flipped: false,
-    lastFlippedTime: Date.now(),
   };
 }
 
+//Reducers
 export default function cards(state = [], action) {
   switch (action.type) {
     case LOAD_CARDS:
       const cardData = {};
-      const receivedCards = action.cards;
-      receivedCards.forEach((card) => {
-        cardData[`${receivedCards.indexOf(card) + 1}a`] = createCard(receivedCards, card, "a");
-        cardData[`${receivedCards.indexOf(card) + 1}b`] = createCard(receivedCards, card, "b");
+      const cards = action.cards;
+      cards.forEach((card) => {
+        cardData[`${cards.indexOf(card) + 1}a`] = createCard(cards, card, "a");
+        cardData[`${cards.indexOf(card) + 1}b`] = createCard(cards, card, "b");
       });
       return {
         ...state,
         ...cardData,
       };
     case FLIP_CARD:
-      let newState = { ...state };
       let cardDetail = { ...state[action.id] };
       cardDetail.flipped = !cardDetail.flipped;
-      newState[action.id] = !state[action.id];
       return {
         ...state,
         [action.id]: cardDetail,

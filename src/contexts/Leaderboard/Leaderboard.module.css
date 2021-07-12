@@ -10,9 +10,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  max-width: 800px;
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   margin-bottom: 2em;
 }
 
@@ -21,15 +21,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   width: 100%;
 }
 
 .Header p {
+  padding: 0.25em;
   background-color: rgb(104, 155, 156);
   color: #fff;
   text-align: center;
-  padding: 0.25em;
 }
 
 .Rank,

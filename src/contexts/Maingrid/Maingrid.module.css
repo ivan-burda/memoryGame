@@ -5,11 +5,11 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
   width: 100vw;
+  max-width: 1000px;
+  min-height: 200px;
   margin: 0 auto;
   margin-bottom: 2em;
-  min-height: 200px;
 }
 
 @media screen and (max-width: 700px) {

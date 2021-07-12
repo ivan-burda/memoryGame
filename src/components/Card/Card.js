@@ -27,8 +27,6 @@ export default function Card({ uniqueId }) {
           if (timerOn === true && lastLocation === "/") {
             dispatch(increaseFlipCount());
           }
-          //Lets make sure that if lastLocation is "/leaderboard" it gets set again to "/" so that flip count incresing above is enabled
-          dispatch(saveLastLocation("/"));
         });
       } else {
         setImage(backImage);
