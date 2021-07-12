@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { flipCard, markMatchedCards, flipBackUnmatchedCards } from "../../actions/cards";
-import { increaseFlipCount } from "../../actions/game";
+import { increaseFlipCount, saveLastLocation } from "../../actions/game";
 import backImage from "../../media/back.png";
 
 import classes from "./Card.module.css";
@@ -12,6 +12,7 @@ export default function Card({ uniqueId }) {
   const cards = useSelector((state) => state.cards);
   const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const timerOn = useSelector((state) => state.timer.timerOn);
+  const lastLocation = useSelector((state) => state.game.lastLocation);
 
   const [image, setImage] = React.useState(backImage);
   const [classList, setClassList] = React.useState([classes.Card]);
@@ -22,9 +23,10 @@ export default function Card({ uniqueId }) {
       if (cardDetails.flipped === true) {
         await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
           setImage(image.default);
-          if (timerOn === true) {
+          if (timerOn === true && lastLocation !== "/leaderboard") {
             dispatch(increaseFlipCount());
           }
+          dispatch(saveLastLocation("/"));
         });
       } else {
         setImage(backImage);
