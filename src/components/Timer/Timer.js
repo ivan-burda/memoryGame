@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { showCongrats } from "../../actions/game";
 import { increaseTimer } from "../../actions/timer";
 import classes from "./Timer.module.css";
 
