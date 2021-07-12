@@ -2,12 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   width: 150px;
   height: 150px;
+  overflow: hidden;
   border: 3px solid rgb(126, 139, 163);
   box-shadow: 5px 5px 5px 1px rgba(50, 50, 50, 0.4);
-  margin: 10px;
   cursor: pointer;
   margin: 0;
   padding: 0;
