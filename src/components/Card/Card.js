@@ -9,13 +9,13 @@ import classes from "./Card.module.css";
 
 export default function Card({ uniqueId }) {
   const dispatch = useDispatch();
-  const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const cards = useSelector((state) => state.cards);
+  const cardDetails = useSelector((state) => state.cards[`${uniqueId}`]);
   const timerOn = useSelector((state) => state.timer.timerOn);
   const [image, setImage] = React.useState(backImage);
   const [classList, setClassList] = React.useState([classes.Card]);
 
-  //Flips a card to show the image or reverts it to show the back
+  //Flips a card to show the image or revert it to show the back
   React.useEffect(() => {
     (async () => {
       if (cardDetails.flipped === true) {
