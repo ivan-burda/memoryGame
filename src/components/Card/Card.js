@@ -40,14 +40,14 @@ export default function Card({ uniqueId }) {
     }
   }, [cardDetails.matched]);
 
-  //If a match happens when the card gets flipped->request marking the pair as matched
+  //If a match happens when the card gets flipped -> request marking the pair as matched
   React.useEffect(() => {
     if (cards[uniqueId].flipped === true) {
-      let relatedText = uniqueId.slice(-1);
-      let relatedNumber = uniqueId.match(/\d+/)[0];
-      let oppositeId = relatedNumber + (relatedText === "a" ? "b" : "a");
-      if (cards[oppositeId].flipped === true) {
-        dispatch(markMatchedCards({ matched1: uniqueId, matched2: oppositeId }));
+      let cardLetter = uniqueId.slice(-1); //e.g. 1a => a
+      let cardNumber = uniqueId.match(/\d+/)[0]; //e.g. 1a => 1
+      let relatedCardUniqueId = cardNumber + (cardLetter === "a" ? "b" : "a"); //e.g. 1a => 1b
+      if (cards[relatedCardUniqueId].flipped === true) {
+        dispatch(markMatchedCards({ matched1: uniqueId, matched2: relatedCardUniqueId }));
       }
     }
   }, [cards[uniqueId].flipped]);
