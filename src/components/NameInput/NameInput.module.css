@@ -1,10 +1,10 @@
 .NameInput {
   height: 3em;
   width: 250px;
-  border: 2px solid rgb(21, 66, 66);
-  border-radius: 5px;
   padding: 0.5em;
   margin-bottom: 2em;
+  border: 2px solid rgb(21, 66, 66);
+  border-radius: 5px;
   background-color: rgb(175, 208, 209);
   color: rgb(21, 66, 66);
   font-weight: 600;
@@ -12,13 +12,13 @@
 
 .Button {
   margin: 0.5em;
-  cursor: pointer;
-  height: 40px;
   width: 180px;
+  height: 40px;
   border: none;
+  border-radius: 5px;
   background-color: rgb(126, 139, 163);
   color: #fff;
-  border-radius: 5px;
+  cursor: pointer;
 }
 
 .Button:hover {

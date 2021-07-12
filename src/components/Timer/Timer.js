@@ -1,14 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { increaseTimer } from "../../actions/timer";
+
 import classes from "./Timer.module.css";
 
 export function displayTime(timerTime) {
   let minutes = parseInt(timerTime / 60);
   let minutesPrecedingZero = minutes < 10 ? "0" : "";
-  let secondes = timerTime - minutes * 60;
-  let secondesPrecedingZero = secondes < 10 ? "0" : "";
-  let display = `${minutesPrecedingZero}${minutes}:${secondesPrecedingZero}${secondes}`;
+  let seconds = timerTime - minutes * 60;
+  let secondsPrecedingZero = seconds < 10 ? "0" : "";
+  let display = `${minutesPrecedingZero}${minutes}:${secondsPrecedingZero}${seconds}`;
   return display;
 }
 
