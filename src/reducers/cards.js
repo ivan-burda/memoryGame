@@ -1,4 +1,4 @@
-import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED, MARK_MATCHED } from "../actions/cards";
+import { LOAD_CARDS, FLIP_CARD, FLIP_BACK_UNMATCHED_CARDS, MARK_MATCHED_CARDS } from "../actions/cards";
 
 function createCard(cards, card, variant) {
   return {
@@ -34,7 +34,7 @@ export default function cards(state = [], action) {
         ...state,
         [action.id]: cardDetail,
       };
-    case FLIP_BACK_UNMATCHED:
+    case FLIP_BACK_UNMATCHED_CARDS:
       let updatedState = { ...state };
       let cardsToFlipBack = Object.values(updatedState).filter((item) => item.flipped === true && item.matched === false && item.uniqueId !== action.exceptOf);
       let numberOfCardsToFlipBack = cardsToFlipBack.length;
@@ -49,7 +49,7 @@ export default function cards(state = [], action) {
         ...state,
         ...flippedObj,
       };
-    case MARK_MATCHED:
+    case MARK_MATCHED_CARDS:
       let updatedState2 = { ...state };
       let matched1Updated = { ...updatedState2[`${action.matched1}`] };
       matched1Updated.matched = true;

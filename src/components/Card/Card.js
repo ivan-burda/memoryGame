@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { flipCard, markMatched, flipBackUnmatched } from "../../actions/cards";
+import { flipCard, markMatchedCards, flipBackUnmatchedCards } from "../../actions/cards";
 import { increaseFlipCount } from "../../actions/game";
 import backImage from "../../media/back.png";
 
@@ -47,13 +47,13 @@ export default function Card({ uniqueId }) {
       let relatedNumber = uniqueId.match(/\d+/)[0];
       let oppositeId = relatedNumber + (relatedText === "a" ? "b" : "a");
       if (cards[oppositeId].flipped === true) {
-        dispatch(markMatched({ matched1: uniqueId, matched2: oppositeId }));
+        dispatch(markMatchedCards({ matched1: uniqueId, matched2: oppositeId }));
       }
     }
   }, [cards[uniqueId].flipped]);
 
   const triggerFlip = () => {
-    dispatch(flipBackUnmatched({ exceptOf: uniqueId }));
+    dispatch(flipBackUnmatchedCards({ exceptOf: uniqueId }));
     if (cardDetails.flipped === false) {
       dispatch(flipCard(cardDetails.uniqueId));
     }

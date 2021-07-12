@@ -1,7 +1,7 @@
 export const LOAD_CARDS = "LOAD_CARDS";
 export const FLIP_CARD = "FLIP_CARD";
-export const FLIP_BACK_UNMATCHED = "FLIP_BACK_UNMATCHED";
-export const MARK_MATCHED = "MARK_MATCHED";
+export const FLIP_BACK_UNMATCHED_CARDS = "FLIP_BACK_UNMATCHED_CARDS";
+export const MARK_MATCHED_CARDS = "MARK_MATCHED_CARDS";
 
 //LOAD CARDS
 export function loadCards(cards) {
@@ -20,18 +20,18 @@ export function flipCard(id) {
 }
 
 //FLIP BACK ALL UNMACTHED
-export function flipBackUnmatched({ exceptOf, match }) {
+export function flipBackUnmatchedCards({ exceptOf, match }) {
   return {
-    type: FLIP_BACK_UNMATCHED,
+    type: FLIP_BACK_UNMATCHED_CARDS,
     exceptOf,
     match,
   };
 }
 
 //MARK MATCHED
-export function markMatched({ matched1, matched2 }) {
+export function markMatchedCards({ matched1, matched2 }) {
   return {
-    type: MARK_MATCHED,
+    type: MARK_MATCHED_CARDS,
     matched1,
     matched2,
   };

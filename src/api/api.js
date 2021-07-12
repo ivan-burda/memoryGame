@@ -36,7 +36,7 @@ export async function addServerItem(newItem) {
 }
 
 // Bulk-delete server items
-export async function bulkDeleteServerItems(data) {
+export async function reduceLeaderBoardToTopTen(data) {
   let newSet = {};
   if (data !== undefined && Object.values(data).length > 10) {
     Object.values(data)

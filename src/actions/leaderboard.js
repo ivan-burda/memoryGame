@@ -1,4 +1,4 @@
-import { receiveServerItems, addServerItem, bulkDeleteServerItems } from "../api/api";
+import { receiveServerItems, addServerItem, reduceLeaderBoardToTopTen } from "../api/api";
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
 
@@ -16,7 +16,7 @@ export function handleReceiveServerItems() {
     receiveServerItems().then((data) => {
       dispatch(receiveItems(data));
       //dispatch(hideLoading());
-      bulkDeleteServerItems(data);
+      reduceLeaderBoardToTopTen(data);
     });
   };
 }
