@@ -23,9 +23,11 @@ export default function Card({ uniqueId }) {
       if (cardDetails.flipped === true) {
         await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
           setImage(image.default);
-          if (timerOn === true && lastLocation !== "/leaderboard") {
+          //If time is running the lasLocation is current, not "/leaderboard" then allow increasing of the flip total count
+          if (timerOn === true && lastLocation === "/") {
             dispatch(increaseFlipCount());
           }
+          //Lets make sure that if lastLocation is "/leaderboard" it gets set again to "/" so that flip count incresing above is enabled
           dispatch(saveLastLocation("/"));
         });
       } else {
