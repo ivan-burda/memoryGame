@@ -52,9 +52,9 @@ export default function cards(state = [], action) {
     case MARK_MATCHED:
       let updatedState2 = { ...state };
       let matched1Updated = { ...updatedState2[`${action.matched1}`] };
-      matched1Updated.matched = !matched1Updated.matched;
+      matched1Updated.matched = true;
       let matched2Updated = { ...updatedState2[`${action.matched2}`] };
-      matched2Updated.matched = !matched2Updated.matched;
+      matched2Updated.matched = true;
       return {
         ...state,
         [action.matched1]: matched1Updated,

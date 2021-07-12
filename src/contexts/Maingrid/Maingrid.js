@@ -13,14 +13,16 @@ export default function Maingrid() {
   const dispatch = useDispatch();
 
   const name = useSelector((state) => state.game.name);
+  const timerTime = useSelector((state) => state.timer.timerTime);
   const pairCount = useSelector((state) => state.game.pairCount);
   const cards = Object.values(useSelector((state) => state.cards)).sort((a, b) => a.randomFactor - b.randomFactor);
 
   React.useEffect(() => {
-    if (name !== "") {
+    //If there is a player's name and if the time is zero (i.e. not returning from "Leaderboard")
+    if (name !== "" && timerTime === 0) {
       dispatch(loadCards(imgFilenames(pairCount)));
     }
-  }, [name, dispatch, pairCount]);
+  }, [name, pairCount]);
 
   //Ask player for name if unknown
   if (name === "") {
