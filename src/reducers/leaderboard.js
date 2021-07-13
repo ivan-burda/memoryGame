@@ -1,11 +1,16 @@
-import { RECEIVE_ITEMS } from "../actions/leaderboard";
+import { RECEIVE_ITEMS, LEADERBOARD_LOADING } from "../actions/leaderboard";
 
 export default function leaderboard(state = {}, action) {
   switch (action.type) {
     case RECEIVE_ITEMS:
       return {
         ...state,
-        ...action.items,
+        items: action.items,
+      };
+    case LEADERBOARD_LOADING:
+      return {
+        ...state,
+        ...action.loadingState,
       };
     default:
       return state;

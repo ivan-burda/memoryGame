@@ -62,10 +62,6 @@ export default function Card({ uniqueId }) {
     }
   };
 
-  const preventDragging = () => {
-    return false;
-  };
-
   return (
     <div className={classList.join(" ")}>
       <img src={image} alt="Memory card" onClick={() => triggerFlip()} draggable="false" />

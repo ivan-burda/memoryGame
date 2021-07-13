@@ -18,6 +18,7 @@ export default function Leaderboard() {
   }, [dispatch]);
 
   //Return UI
+
   if (Object.values(leaderboardEntries).length === 0) {
     return (
       <div className={classes.Loading}>
