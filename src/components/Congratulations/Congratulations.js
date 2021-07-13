@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { useRestartGame } from "../useRestartGame/useRestartGame";
+import { useRestartGame } from "../../customHooks/useRestartGame/useRestartGame";
 import { handleAddServerItem } from "../../actions/leaderboard";
 import { pauseTimer } from "../../actions/timer";
 import { displayTime } from "../Timer/Timer";

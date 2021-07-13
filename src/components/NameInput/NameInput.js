@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { setName } from "../../actions/game";
 import { pauseTimer } from "../../actions/timer";
-import { useRestartGame } from "../useRestartGame/useRestartGame";
+import { useRestartGame } from "../../customHooks//useRestartGame/useRestartGame";
 
 import classes from "./NameInput.module.css";
 
