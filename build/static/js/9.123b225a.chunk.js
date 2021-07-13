@@ -1,0 +1,2 @@
+(this.webpackJsonpmemorygame=this.webpackJsonpmemorygame||[]).push([[9],{77:function(e,a,s){"use strict";s.r(a),a.default=s.p+"static/media/06.c3e5efa4.jpg"}}]);
+//# sourceMappingURL=9.123b225a.chunk.js.map

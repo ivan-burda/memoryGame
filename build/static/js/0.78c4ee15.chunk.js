@@ -1,0 +1,2 @@
+(this.webpackJsonpmemorygame=this.webpackJsonpmemorygame||[]).push([[0],{49:function(e,t,p){"use strict";p.r(t);var a=p(22);test("Filenames below 10 start with zero",(function(){var e=Object(a.default)(15);expect(e.splice(0,9)).toEqual(["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg","09.jpg"])})),test("Filenames from 10 do not start with zero",(function(){var e=Object(a.default)(12);expect(e.splice(9)).toEqual(["10.jpg","11.jpg","12.jpg"])}))}}]);
+//# sourceMappingURL=0.78c4ee15.chunk.js.map
