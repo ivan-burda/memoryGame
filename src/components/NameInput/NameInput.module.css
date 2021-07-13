@@ -9,18 +9,3 @@
   color: rgb(21, 66, 66);
   font-weight: 600;
 }
-
-.Button {
-  margin: 0.5em;
-  width: 180px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(126, 139, 163);
-  color: #fff;
-  cursor: pointer;
-}
-
-.Button:hover {
-  background-color: rgb(153, 164, 185);
-}

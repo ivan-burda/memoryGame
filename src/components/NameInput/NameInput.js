@@ -5,6 +5,8 @@ import { setName } from "../../actions/game";
 import { pauseTimer } from "../../actions/timer";
 import { useRestartGame } from "../../customHooks//useRestartGame/useRestartGame";
 
+import Button from "../Button/Button";
+
 import classes from "./NameInput.module.css";
 
 export default function NameInput() {
@@ -22,16 +24,13 @@ export default function NameInput() {
   return (
     <div>
       <input type="text" placeholder="Your name" className={classes.NameInput} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
-      <button
-        type="button"
-        className={classes.Button}
-        onClick={() => {
+      <Button
+        title={"Start"}
+        action={() => {
           dispatch(setName(inputfieldName));
           restartGame();
         }}
-      >
-        Start
-      </button>
+      />
     </div>
   );
 }

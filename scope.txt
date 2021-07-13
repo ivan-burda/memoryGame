@@ -43,10 +43,12 @@ Refactor the code --DONE
 Use ubiquitous language --DONE
 
 Loading for the leaderboard --DONE
-Game restart button
-Build and deploy, netlify, add ivanburda.com domain prefix
-Make sure it works also from another device such as my tablet
+Build and deploy, netlify, add ivanburda.com domain prefix --DONE
+Make sure it works also from another device such as my tablet --DONE
 
+Game restart button
+Several random back patterns to make the visual more interesting 
+Preloading of images to avoid delay on the first display of each
 
 // Testing 
 https://wanago.io/2019/12/16/javascript-testing-5-testing-hooks-with-react-hooks-testing-library-and-redux/

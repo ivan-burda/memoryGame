@@ -7,6 +7,8 @@ import { handleAddServerItem } from "../../actions/leaderboard";
 import { pauseTimer } from "../../actions/timer";
 import { displayTime } from "../Timer/Timer";
 
+import Button from "../Button/Button";
+
 import classes from "./Congratulations.module.css";
 
 export default function Congratulations() {
@@ -33,15 +35,13 @@ export default function Congratulations() {
       <div className={classes.Container} onClick={() => false}>
         <div className={classes.Congratulations}>
           <p>Congratulations!</p>
-          <button
-            type="button"
-            onClick={() => {
+          <Button
+            title={"Play again"}
+            action={() => {
               restartGame();
               dispatch(handleAddServerItem(newLeaderBoardItem));
             }}
-          >
-            Play again
-          </button>
+          />
         </div>
       </div>
     );

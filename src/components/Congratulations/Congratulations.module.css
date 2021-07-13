@@ -33,18 +33,3 @@
 .Congratulations p {
   font-size: 1.5rem;
 }
-
-.Congratulations button {
-  height: 40px;
-  width: 180px;
-  margin: 0.5em;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(126, 139, 163);
-  color: #fff;
-  cursor: pointer;
-}
-
-.Congratulations button:hover {
-  background-color: rgb(153, 164, 185);
-}
