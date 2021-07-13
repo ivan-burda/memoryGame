@@ -1,6 +1,6 @@
 import { INCREASE_FLIP_COUNT, RESET_FLIP_COUNT, SET_NAME, SAVE_LAST_LOCATION } from "../actions/game";
 
-export default function game(state = { flipCount: 0, showCongrats: false, name: "", pairCount: 2, lastLocation: "/" }, action) {
+export default function game(state = { flipCount: 0, showCongrats: false, name: "", pairCount: 12, lastLocation: "/" }, action) {
   switch (action.type) {
     case INCREASE_FLIP_COUNT:
       return {

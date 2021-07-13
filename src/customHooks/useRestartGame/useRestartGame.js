@@ -15,7 +15,7 @@ export const useRestartGame = () => {
     dispatch(resetTimer());
     dispatch(resetCards(imgFilenames(pairCount)));
     dispatch(resetFlipCount());
-    dispatch(startTimer());
+    dispatch(resetTimer());
   };
 
   return useRestartGame;
