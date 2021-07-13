@@ -13,10 +13,10 @@ function receiveItems(items) {
 
 export function handleReceiveServerItems() {
   return (dispatch) => {
-    dispatch(leaderboardLoading(true));
+    //dispatch(leaderboardLoading(true));
     receiveServerItems().then((data) => {
       dispatch(receiveItems(data));
-      dispatch(leaderboardLoading(false));
+      //dispatch(leaderboardLoading(false));
       reduceLeaderBoardToTopTen(data);
     });
   };
