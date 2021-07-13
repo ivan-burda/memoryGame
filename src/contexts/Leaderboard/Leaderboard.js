@@ -13,7 +13,6 @@ export default function Leaderboard() {
   const dispatch = useDispatch();
   const leaderboardEntries = useSelector((state) => state.leaderboard);
   const leaderboardLoading = useSelector((state) => state.loadings.leaderboardLoading);
-  console.log("leaderboardLoading", leaderboardLoading);
 
   React.useEffect(() => {
     dispatch(dispatch(pauseTimer()));

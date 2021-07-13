@@ -39,7 +39,7 @@ export default function timer(
       return {
         ...state,
         timerTime: 0,
-        timerOn: false,
+        timerOn: true,
       };
     default:
       return state;

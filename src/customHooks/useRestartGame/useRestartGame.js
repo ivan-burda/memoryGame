@@ -11,8 +11,6 @@ export const useRestartGame = () => {
   const pairCount = useSelector((state) => state.game.pairCount);
 
   const useRestartGame = () => {
-    dispatch(pauseTimer());
-    dispatch(resetTimer());
     dispatch(resetCards(imgFilenames(pairCount)));
     dispatch(resetFlipCount());
     dispatch(resetTimer());
