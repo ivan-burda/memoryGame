@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleReceiveServerItems } from "../../actions/leaderboard";
 import { pauseTimer } from "../../actions/timer";
 
+import Loading from "../../components/Loading/Loading";
 import LeaderboardEntry from "./LeaderboardEntry";
 
 import classes from "./Leaderboard.module.css";
@@ -11,6 +12,8 @@ import classes from "./Leaderboard.module.css";
 export default function Leaderboard() {
   const dispatch = useDispatch();
   const leaderboardEntries = useSelector((state) => state.leaderboard);
+  const leaderboardLoading = useSelector((state) => state.loadings.leaderboardLoading);
+  console.log("leaderboardLoading", leaderboardLoading);
 
   React.useEffect(() => {
     dispatch(dispatch(pauseTimer()));
@@ -18,8 +21,9 @@ export default function Leaderboard() {
   }, [dispatch]);
 
   //Return UI
-
-  if (Object.values(leaderboardEntries).length === 0) {
+  if (leaderboardLoading) {
+    return <Loading />;
+  } else if (Object.values(leaderboardEntries).length === 0) {
     return (
       <div className={classes.Loading}>
         <p>No stats available yet </p>

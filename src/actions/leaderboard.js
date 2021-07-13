@@ -1,7 +1,7 @@
 import { receiveServerItems, addServerItem, reduceLeaderBoardToTopTen } from "../api/api";
+import { leaderboardLoading } from "../actions/loadings";
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
-export const LEADERBOARD_LOADING = "LEADERBOARD_LOADING";
 
 // RECEIVE ITEMS
 function receiveItems(items) {
@@ -13,10 +13,10 @@ function receiveItems(items) {
 
 export function handleReceiveServerItems() {
   return (dispatch) => {
-    //dispatch(leaderboardLoading(true));
+    dispatch(leaderboardLoading(true));
     receiveServerItems().then((data) => {
       dispatch(receiveItems(data));
-      //dispatch(leaderboardLoading(false));
+      dispatch(leaderboardLoading(false));
       reduceLeaderBoardToTopTen(data);
     });
   };
@@ -34,13 +34,5 @@ export function handleAddServerItem(newItem) {
   return (dispatch) => {
     dispatch(addItem(newItem));
     addServerItem(newItem);
-  };
-}
-
-//LEADERBOARD LOADING
-function leaderboardLoading(loadingState) {
-  return {
-    type: LEADERBOARD_LOADING,
-    loadingState,
   };
 }
