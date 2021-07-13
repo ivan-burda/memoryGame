@@ -1,4 +1,4 @@
-Button {
+.Button {
   height: 40px;
   width: 180px;
   margin: 0.5em;
@@ -9,6 +9,10 @@ Button {
   cursor: pointer;
 }
 
+.Disabled {
+  background-color: rgb(89, 97, 97);
+}
+
 .Button:hover {
-  background-color: rgb(101, 145, 146);
+  background-color: rgb(90, 145, 146);
 }

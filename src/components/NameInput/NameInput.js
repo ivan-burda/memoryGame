@@ -26,6 +26,7 @@ export default function NameInput() {
       <input type="text" placeholder="Your name" className={classes.NameInput} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
       <Button
         title={"Start"}
+        disabled={false}
         action={() => {
           dispatch(setName(inputfieldName));
           restartGame();
