@@ -42,8 +42,8 @@ Responsive for smaller displays --DONE
 Refactor the code --DONE
 Use ubiquitous language --DONE
 
+Loading for the leaderboard --DONE
 Game restart button
-Loading for the leaderboard
 Build and deploy, netlify, add ivanburda.com domain prefix
 Make sure it works also from another device such as my tablet
 
