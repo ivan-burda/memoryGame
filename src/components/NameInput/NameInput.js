@@ -14,6 +14,7 @@ export default function NameInput() {
   const restartGame = useRestartGame();
   const name = useSelector((state) => state.game.name);
   const [inputfieldName, setInputfieldName] = React.useState("");
+  const [btnDisabled, setBtnDisabled] = React.useState(true);
 
   React.useEffect(() => {
     if (!name) {
@@ -21,12 +22,21 @@ export default function NameInput() {
     }
   }, [name, dispatch]);
 
+  React.useEffect(() => {
+    if (inputfieldName === "") {
+      setBtnDisabled(true)
+    } else {
+      setBtnDisabled(false);
+    }
+  }, [inputfieldName]);
+
+
   return (
     <div>
       <input type="text" placeholder="Your name" className={classes.NameInput} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
       <Button
         title={"Start"}
-        disabled={false}
+        disableMe={btnDisabled}
         action={() => {
           dispatch(setName(inputfieldName));
           restartGame();

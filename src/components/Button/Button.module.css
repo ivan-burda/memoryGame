@@ -13,6 +13,6 @@
   background-color: rgb(89, 97, 97);
 }
 
-.Button:hover {
+.Button[disabled]:hover:enabled {
   background-color: rgb(90, 145, 146);
 }
