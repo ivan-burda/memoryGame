@@ -15,6 +15,7 @@ export default function NameInput() {
   const name = useSelector((state) => state.game.name);
   const [inputfieldName, setInputfieldName] = React.useState("");
   const [btnDisabled, setBtnDisabled] = React.useState(true);
+  const [classList, setClassList] = React.useState([classes.NameInput])
 
   React.useEffect(() => {
     if (!name) {
@@ -25,15 +26,17 @@ export default function NameInput() {
   React.useEffect(() => {
     if (inputfieldName === "") {
       setBtnDisabled(true)
+      setClassList(classList.concat(classes.Required))
     } else {
       setBtnDisabled(false);
+      setClassList(classList.filter((item) => item !== classes.Required));
     }
   }, [inputfieldName]);
 
 
   return (
     <div>
-      <input type="text" placeholder="Your name" className={classes.NameInput} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
+      <input type="text" placeholder="Your name" className={classList.join(" ")} onChange={(e) => setInputfieldName(e.target.value)} value={inputfieldName} />
       <Button
         title={"Start"}
         disableMe={btnDisabled}

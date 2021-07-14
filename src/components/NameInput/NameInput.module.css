@@ -9,3 +9,7 @@
   color: rgb(21, 66, 66);
   font-weight: 600;
 }
+
+.Required{
+  border: 2px solid rgb(199, 27, 107);
+}
