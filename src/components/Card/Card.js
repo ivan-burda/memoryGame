@@ -14,15 +14,25 @@ export default function Card({ uniqueId }) {
   const timerOn = useSelector((state) => state.timer.timerOn);
   const lastLocation = useSelector((state) => state.game.lastLocation);
 
+  const [preloadedImage, setPreloadedImage] = React.useState("");
   const [image, setImage] = React.useState(backImage);
   const [classList, setClassList] = React.useState([classes.Card]);
+
+  //Pre-load card
+  React.useEffect(()=>{
+    (async () => {
+        await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
+          setPreloadedImage(image.default);
+        });
+    })();
+  },[cardDetails.imgFilename]);
 
   //Flips a card to show the image or revert it to show the back
   React.useEffect(() => {
     (async () => {
       if (cardDetails.flipped === true) {
         await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
-          setImage(image.default);
+          setImage(preloadedImage);
           //If time is running the lasLocation is current, not "/leaderboard" then allow increasing of the flip total count
           if (timerOn === true && lastLocation === "/") {
             dispatch(increaseFlipCount());
