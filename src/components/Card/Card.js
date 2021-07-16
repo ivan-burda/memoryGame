@@ -32,7 +32,7 @@ export default function Card({ uniqueId }) {
     (async () => {
       if (cardDetails.flipped === true) {
         await import(`../../media/${cardDetails.imgFilename}`).then((image) => {
-          setImage(preloadedImage);
+          setImage(preloadedImage !=="" ? preloadedImage : image);
           //If time is running the lasLocation is current, not "/leaderboard" then allow increasing of the flip total count
           if (timerOn === true && lastLocation === "/") {
             dispatch(increaseFlipCount());
