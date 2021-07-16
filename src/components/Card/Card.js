@@ -63,8 +63,8 @@ export default function Card({ uniqueId }) {
   };
 
   return (
-    <div className={classList.join(" ")}>
-      <img src={image} alt="Memory card" onClick={() => triggerFlip()} draggable="false" />
-    </div>
+      <button type="button" className={classList.join(" ")} onClick={() => triggerFlip()}>
+      <img src={image} alt="Memory card" draggable="false" />
+      </button>
   );
 }
